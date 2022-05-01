@@ -1,11 +1,17 @@
 /* eslint no-unused-vars: "off" */
-import React from 'react';
+import React, { Suspense } from 'react';
 import {
     BrowserRouter as Router,
     Routes,
     Route,
     Link
 } from 'react-router-dom'
+import wait from '../../pages/utils/wait';
+const PageOne = React.lazy(() => {
+    return import('../../pages/PageOne/PageOne')
+});
+const PageTwo = React.lazy(() => import('../../pages/PageTwo/PageTwo'))
+import TopMenu from '../TopMenu/TopMenu';
 import cl from './Layout.module.scss'
 
 const Layout = () => {
@@ -13,19 +19,23 @@ const Layout = () => {
         <Router>
             <div className={cl.app}>
                 <nav className={cl.navbar}>
-                    <Link to="/site/one" style={{ padding: 5 }}>
+                    {/* <Link to="/site/one" style={{ padding: 5 }}>
                         One
                     </Link>
                     <Link to="/site/two" style={{ padding: 5 }}>
                         Two
-                    </Link>
+                    </Link> */}
+                    <TopMenu />
                 </nav>
                 <div className={cl.sidebar}>sidebar</div>
                 <main className={cl.content}>
-                    <Routes>
-                        <Route path="/site/one" element={<One />} />
-                        <Route path="/site/two" element={<Two />} />
-                    </Routes>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Routes>
+                            <Route path="/site" element={<div>Home</div>} />
+                            <Route path="/site/one" element={<PageOne />} />
+                            <Route path="/site/two" element={<PageTwo />} />
+                        </Routes>
+                    </Suspense>
                 </main>
                 <footer className={cl.footer}>footer</footer>
             </div>

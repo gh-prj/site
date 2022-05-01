@@ -2,12 +2,12 @@
   display: grid;
   min-height: 98vh;
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 28px 1fr 28px;
-  background: red;
+  grid-template-rows: 40px 1fr 28px;
   background-color: lightgrey;
 }
 
 .navbar {
+  position: relative;
   grid-column: 1/3;
   display: flex;
   background-color: rgb(245, 226, 237);
