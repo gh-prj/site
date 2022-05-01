@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgh_react_site=self.webpackChunkgh_react_site||[]).push([[712],{712:function(e,t,c){c.r(t);c(791);var n=c(184);t.default=function(){return(0,n.jsx)("div",{children:"Page #1"})}}}]);
+//# sourceMappingURL=712.77c71e17.chunk.js.map
