@@ -37,11 +37,10 @@ li {
   border: 1px solid #aaa;
   //   border-bottom: none;
   //   border-left: none;
-  cursor: pointer;
-  border-radius: 10px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  //   background: #bbff00;
+  cursor: default;
+  //   border-radius: 10px;
+  //   border-bottom-left-radius: 0;
+  //   border-bottom-right-radius: 0;
   background: #ffe200;
   color: #f63030;
   box-shadow: 2px 0px 3px black;
@@ -54,7 +53,7 @@ li {
   //   justify-content: left;
   flex-direction: column;
   top: 28px;
-  left: 0px;
+  left: -1px;
   padding: 0 0px;
   list-style-type: none;
   max-height: 0;
@@ -62,6 +61,10 @@ li {
   overflow-y: hidden;
   overflow-x: visible;
   /*    border-radius: 10px;*/
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  box-shadow: 3px 3px 3px black;
+
   /*
     transition: 1.0s;
     transition-delay: 0s;
@@ -70,15 +73,13 @@ li {
 }
 
 .top_menu > li:hover > ul {
-  overflow-x: visible;
+  //   overflow-x: visible;
   overflow-y: visible;
-
-  /*    border: 1px solid black;*/
+  //   border: 1px solid black;
   background: #ffe200;
   padding-top: 3px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   /*    border-bottom-left-radius: 10px;*/
-  /*    box-shadow: 2px 0px 3px black;*/
   animation: showSubmenu 0.5s linear;
   /*    background: red;*/
   /*    animation-delay: -0.01s;*/
@@ -114,37 +115,7 @@ li {
 .top_menu li:hover ul li:hover {
   background: #d2bd16;
   color: #f63030;
-  /*    border: 1px solid black;*/
 }
-
-.top_menu li:hover ul li:hover::after2 {
-  /*.top-menu li ul li::after {*/
-  content: "";
-  /*    display: inline-block;*/
-  display: block;
-  /*    position: relative;*/
-  position: absolute;
-  top: 0;
-  right: -0.5em;
-  /*
-    top: 10px;
-    right: -30px;
-*/
-  height: calc(1em + 6px);
-  width: calc(0.5em + 3px);
-  background: #d2bd16;
-  border-top-right-radius: calc(0.5em + 3px);
-  border-bottom-right-radius: calc(0.5em + 3px);
-  /*    border: 1px solid black;*/
-  /*
-    margin: 0;
-    padding: 0;
-*/
-}
-
-// ul:has(li) {
-//   background: aqua;
-// }
 
 .top_menu li:hover ul li.hasch:after {
   /*.top-menu li ul li::after {*/
@@ -155,43 +126,20 @@ li {
   position: absolute;
   //   top: calc(0.25em + 1px);
   top: 0;
-  right: -0.5em;
+  right: -0.3em;
   /*
     top: 10px;
     right: -30px;
 */
-  //   height: calc(1em + 6px);
-  //   width: calc(0.5em + 3px);
   height: 0px;
   width: 0px;
-  //   background: #d21655;
-  //   border-top-right-radius: calc(0.5em + 3px);
-  //   border-bottom-right-radius: calc(0.5em + 3px);
-  //   border-top: calc(0.5em + 3px) solid rgb(67, 148, 240);
-  //   border-right: calc(0.5em + 3px) solid rgb(134, 43, 43);
   border: calc(0.5em + 3px) solid #ffe200;
   border-left: calc(0.5em + 3px) solid #d2bd16;
-  /*    border: 1px solid black;*/
-  /*
-    margin: 0;
-    padding: 0;
-*/
-  transform: scale(0.5);
+  transform: scale(0.4);
 }
 
 .top_menu li:hover ul li:hover::after {
   display: none;
-}
-
-.vmenu {
-  /*
-    display: flex;
-    position: relative;
-    max-height: 0;
-    overflow-y: hidden;
-    overflow-x: visible;
-*/
-  /*    max-width: 0vh;*/
 }
 
 li:hover > .vmenu {
@@ -225,4 +173,19 @@ li:hover > .vmenu {
     opacity: 1;
     /*        overflow-x: visible;*/
   }
+}
+
+a {
+  display: inline-block;
+  width: 100%;
+}
+
+a:link,
+a:visited {
+  text-decoration: none !important;
+  color: black;
+}
+
+li:hover > a {
+  color: #f63030;
 }

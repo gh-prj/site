@@ -23,7 +23,7 @@ const TopMenu = () => {
             <li>item_2
                 <ul>
                     <li>subitem_1 fsdfsd</li>
-                    <li>subitem_2 sefsgrgr grgrg gsfsdf 423443</li>
+                    <li>subitem_2 sefsgrgr grgrg</li>
                 </ul>
             </li>
             <li>item_3
