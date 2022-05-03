@@ -1,16 +1,12 @@
 /* eslint no-unused-vars: "off" */
 import React, { Suspense } from 'react';
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
+    BrowserRouter as Router, Routes, Route, Link
 } from 'react-router-dom'
 import wait from '../../pages/utils/wait';
-const PageOne = React.lazy(() => {
-    return import('../../pages/PageOne/PageOne')
-});
+const PageOne = React.lazy(() => import('../../pages/PageOne/PageOne'));
 const PageTwo = React.lazy(() => import('../../pages/PageTwo/PageTwo'))
+const UseState = React.lazy(() => import('../../pages/react/hooks/useState/UseState'))
 import TopMenu from '../TopMenu/TopMenu';
 import cl from './Layout.module.scss'
 
@@ -34,6 +30,7 @@ const Layout = () => {
                             <Route path="/site" element={<div>Home</div>} />
                             <Route path="/site/one" element={<PageOne />} />
                             <Route path="/site/two" element={<PageTwo />} />
+                            <Route path="/site/usestate" element={<UseState />} />
                         </Routes>
                     </Suspense>
                 </main>

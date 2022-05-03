@@ -6,9 +6,17 @@ import styles from "./TopMenu.module.scss"
 const TopMenu = () => {
     return (
         <ul className={styles.top_menu}>
-            <li>item_1
+            <li>React
                 <ul>
-                    <li>subitem_1</li>
+                    <li className={styles.hasch}>Hooks
+                        <ul className={styles.vmenu}>
+                            <li><Link to="/site/usestate">useState</Link> </li>
+                            <li>useEffect</li>
+                            <li>useRef</li>
+                            <li>useMemo</li>
+                            <li>useCallback</li>
+                        </ul>
+                    </li>
                     <li className={styles.hasch}>subitem_2
                         <ul className={styles.vmenu}>
                             <li><Link to="/site/one">111</Link></li>
@@ -20,10 +28,16 @@ const TopMenu = () => {
                     <li><Link to="/site/two">222</Link></li>
                 </ul>
             </li>
-            <li>item_2
+            <li>CSS
                 <ul>
-                    <li>subitem_1 fsdfsd</li>
-                    <li>subitem_2 sefsgrgr grgrg</li>
+                    <li className={styles.hasch}>Animations
+                        <ul className={styles.vmenu}>
+                            <li>1</li>
+                            <li>2</li>
+                        </ul>
+                    </li>
+                    <li>Grid</li>
+                    <li>Flexbox</li>
                 </ul>
             </li>
             <li>item_3
