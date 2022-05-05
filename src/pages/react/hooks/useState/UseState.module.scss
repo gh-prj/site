@@ -1,5 +1,5 @@
 button {
-  width: 50px;
+  width: 70px;
   height: 30px;
   border-radius: 7px;
   background-color: rgb(186, 215, 245);
@@ -10,4 +10,13 @@ label {
   display: inline-block;
   width: 50px;
   text-align: center;
+  &.neg {
+    background-color: #ff9999;
+  }
+  &.zero {
+    background-color: #ccc;
+  }
+  &.pos {
+    background-color: #99ff99;
+  }
 }
