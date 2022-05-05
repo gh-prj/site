@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import {
     BrowserRouter as Router, Routes, Route, Link
 } from 'react-router-dom'
+import UseCallback from '../../pages/react/hooks/useCallback/UseCallback';
 import wait from '../../pages/utils/wait';
 const PageOne = React.lazy(() => import('../../pages/PageOne/PageOne'));
 const PageTwo = React.lazy(() => import('../../pages/PageTwo/PageTwo'))
@@ -31,6 +32,7 @@ const Layout = () => {
                             <Route path="/site/one" element={<PageOne />} />
                             <Route path="/site/two" element={<PageTwo />} />
                             <Route path="/site/usestate" element={<UseState />} />
+                            <Route path="/site/usecallback" element={<UseCallback />} />
                         </Routes>
                     </Suspense>
                 </main>
