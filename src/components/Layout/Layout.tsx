@@ -3,8 +3,7 @@ import React, { Suspense } from 'react';
 import {
     BrowserRouter as Router, Routes, Route, Link
 } from 'react-router-dom'
-import UseCallback from '../../pages/react/hooks/useCallback/UseCallback';
-import wait from '../../pages/utils/wait';
+const UseCallback = React.lazy(() => import('../../pages/react/hooks/useCallback/UseCallback'));
 const PageOne = React.lazy(() => import('../../pages/PageOne/PageOne'));
 const PageTwo = React.lazy(() => import('../../pages/PageTwo/PageTwo'))
 const UseState = React.lazy(() => import('../../pages/react/hooks/useState/UseState'))
@@ -16,12 +15,6 @@ const Layout = () => {
         <Router>
             <div className={cl.app}>
                 <nav className={cl.navbar}>
-                    {/* <Link to="/site/one" style={{ padding: 5 }}>
-                        One
-                    </Link>
-                    <Link to="/site/two" style={{ padding: 5 }}>
-                        Two
-                    </Link> */}
                     <TopMenu />
                 </nav>
                 <div className={cl.sidebar}>sidebar</div>
