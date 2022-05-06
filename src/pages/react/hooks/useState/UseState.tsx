@@ -7,7 +7,7 @@ const UseState = () => {
     const getClass = () => value < 0 ? styles.neg : value > 0 ? styles.pos : styles.zero
 
     return (
-        <div className={styles.div}>
+        <div className={styles.container}>
             <button onClick={() => setValue(x => x - 1)} >-</button>
             <label className={getClass()}>{value}</label>
             <button onClick={() => setValue(x => x + 1)} >+</button>
