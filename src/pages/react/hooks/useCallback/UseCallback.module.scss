@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  & > * {
+    border: 1px dotted maroon;
+  }
+  & > :first-child ~ * {
+    color: olivedrab;
+    margin-left: 15px;
+  }
+}

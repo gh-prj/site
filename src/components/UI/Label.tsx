@@ -1,25 +1,27 @@
-import React from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import RenderCnt from './RenderCnt';
 
-interface PropsPart {
-    children: React.ReactNode
+// interface PropsPart {
+//     children: React.ReactNode
+//     showRenders?: boolean
+//     style?: React.CSSProperties
+// }
+// type Props = PropsPart & React.HTMLProps<HTMLDivElement>
+interface Props extends HTMLAttributes<HTMLLabelElement> {
     showRenders?: boolean
-    style?: React.CSSProperties
 }
-type Props = PropsPart & React.HTMLProps<HTMLDivElement>
 
-const Label: React.FC<Props> = ({ children, showRenders, style, ...props }) => {
-    console.log('Label')
+const Label: FC<Props> = ({ children, showRenders, title, ...props }) => {
     return (
-        <div {...props} style={{
+        <div style={{
             display: 'inline-flex',
             flexDirection: 'column',
-            ...style,
-            background: 'inherit'
+            // ...style,
+            // background: 'inherit'
         }} >
-            <label style={{ background: style?.background || 'inherit' }}>
-                {children}
-            </label>
+            {title !== undefined && (title.trim() ? title : <>&nbsp;</>)}
+            {/* <label style={{ background: style?.background || 'inherit' }}> */}
+            <label {...props}>{children}</label>
             { showRenders && <RenderCnt />}
         </div >
     );

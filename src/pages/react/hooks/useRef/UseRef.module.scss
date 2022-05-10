@@ -1,0 +1,20 @@
+.container {
+  div {
+    border: 1px solid green;
+    padding: 5px;
+    margin: 2px 2px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  label {
+    display: inline-block;
+    background-color: orange;
+  }
+  button {
+    width: 100px;
+  }
+  span {
+    background-color: greenyellow;
+  }
+}

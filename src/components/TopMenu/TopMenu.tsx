@@ -6,15 +6,23 @@ import styles from "./TopMenu.module.scss"
 const TopMenu = () => {
     return (
         <ul className={styles.top_menu}>
+            <li><Link to="/site">Home</Link></li>
+            <li>Test
+                <ul >
+                    <li>
+                        <Link to="/site/test" >Test</Link>
+                    </li>
+                </ul>
+            </li>
             <li>React
                 <ul>
                     <li className={styles.hasch}>Hooks
                         <ul className={styles.vmenu}>
-                            <li><Link to="/site/usestate">useState</Link> </li>
-                            <li>useEffect</li>
-                            <li>useRef</li>
+                            <li><Link to="/site/usestate">useState</Link></li>
+                            <li><Link to="/site/useref">useRef</Link></li>
+                            <li><Link to="/site/useeffect">useEffect</Link></li>
                             <li>useMemo</li>
-                            <li><Link to="/site/usecallback">useCallback</Link> </li>
+                            <li><Link to="/site/usecallback">useCallback</Link></li>
                         </ul>
                     </li>
                     <li className={styles.hasch}>subitem_2

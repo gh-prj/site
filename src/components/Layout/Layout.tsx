@@ -7,6 +7,10 @@ const UseCallback = React.lazy(() => import('../../pages/react/hooks/useCallback
 const PageOne = React.lazy(() => import('../../pages/PageOne/PageOne'));
 const PageTwo = React.lazy(() => import('../../pages/PageTwo/PageTwo'))
 const UseState = React.lazy(() => import('../../pages/react/hooks/useState/UseState'))
+const UseRef = React.lazy(() => import('../../pages/react/hooks/useRef/UseRef'))
+const UseEffect = React.lazy(() => import('../../pages/react/hooks/useEffect/UseEffect'))
+const Test = React.lazy(() => import('../../pages/Test/Test'))
+
 import TopMenu from '../TopMenu/TopMenu';
 import cl from './Layout.module.scss'
 
@@ -26,6 +30,9 @@ const Layout = () => {
                             <Route path="/site/two" element={<PageTwo />} />
                             <Route path="/site/usestate" element={<UseState />} />
                             <Route path="/site/usecallback" element={<UseCallback />} />
+                            <Route path="/site/test" element={<Test />} />
+                            <Route path="/site/useref" element={<UseRef />} />
+                            <Route path="/site/useeffect" element={<UseEffect />} />
                         </Routes>
                     </Suspense>
                 </main>

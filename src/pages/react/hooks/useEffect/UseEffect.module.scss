@@ -1,0 +1,16 @@
+.content {
+  margin: 10px;
+  & label {
+    display: inline-block;
+    width: 120px;
+    &:first-of-type::before {
+      content: "Current value:";
+    }
+    &:last-of-type::before {
+      content: "Previous value:";
+    }
+  }
+  & input {
+    margin-bottom: 5px;
+  }
+}
