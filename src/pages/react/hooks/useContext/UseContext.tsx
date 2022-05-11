@@ -17,7 +17,7 @@ const UseContext = () => {
                     <span className={styles.bold}>{`{value}:`}</span><label>{value}</label>&nbsp;
                     <button onClick={() => setValue(value + 1)}>setValue(value+1)</button><br />
                     <span className={styles.bold}>{`<MyContext.Provider value={{ num: value }}>`}</span><br />
-                    <InnerComponent1 />
+                    <InnerComponent1 /><br />
                     <span className={styles.bold}>{`</MyContext.Provider>`}</span><br />
                 </MyContext.Provider>
             </div >
@@ -30,7 +30,7 @@ export default UseContext;
 const InnerComponent1 = () => {
     return (
         <div>
-            <span>InnerComponent1</span>
+            <span>InnerComponent1</span><br />
             <InnerComponent2 />
         </div>
     )
@@ -39,7 +39,7 @@ const InnerComponent1 = () => {
 const InnerComponent2 = () => {
     return (
         <div>
-            <span>InnerComponent2</span>
+            <span>InnerComponent2</span><br />
             <InnerComponent3 />
 
         </div>

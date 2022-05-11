@@ -3,6 +3,7 @@ $border: 1px dotted olivedrab;
 .container {
   border: $border;
   color: blue;
+  display: inline-block;
   & div {
     border: $border;
     margin: 5px 15px;
