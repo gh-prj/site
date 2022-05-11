@@ -1,0 +1,30 @@
+$border: 1px dotted olivedrab;
+
+.container {
+  border: $border;
+  color: blue;
+  & div {
+    border: $border;
+    margin: 5px 15px;
+    color: rgb(128, 0, 0);
+    & div {
+      color: rgb(00, 128, 0);
+      & div {
+        color: rgb(0, 0, 128);
+      }
+    }
+  }
+  & label {
+    color: black;
+    display: inline-block;
+    width: 25px;
+    background-color: gainsboro;
+    margin: 0 5px;
+  }
+}
+
+.bold {
+  font-weight: bold;
+  font-style: italic;
+  color: red;
+}

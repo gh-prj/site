@@ -9,6 +9,7 @@ const PageTwo = React.lazy(() => import('../../pages/PageTwo/PageTwo'))
 const UseState = React.lazy(() => import('../../pages/react/hooks/useState/UseState'))
 const UseRef = React.lazy(() => import('../../pages/react/hooks/useRef/UseRef'))
 const UseEffect = React.lazy(() => import('../../pages/react/hooks/useEffect/UseEffect'))
+const UseContext = React.lazy(() => import('../../pages/react/hooks/useContext/UseContext'))
 const Test = React.lazy(() => import('../../pages/Test/Test'))
 
 import TopMenu from '../TopMenu/TopMenu';
@@ -33,6 +34,7 @@ const Layout = () => {
                             <Route path="/site/test" element={<Test />} />
                             <Route path="/site/useref" element={<UseRef />} />
                             <Route path="/site/useeffect" element={<UseEffect />} />
+                            <Route path="/site/usecontext" element={<UseContext />} />
                         </Routes>
                     </Suspense>
                 </main>
