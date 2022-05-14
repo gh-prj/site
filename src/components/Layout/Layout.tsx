@@ -22,7 +22,11 @@ const Layout = () => {
                 <nav className={cl.navbar}>
                     <TopMenu />
                 </nav>
-                <div className={cl.sidebar}>sidebar</div>
+                <div className={cl.sidebar}>
+                    <Routes>
+                        <Route path="/site/one" element={<div>Page One</div>} />
+                    </Routes>
+                </div>
                 <main className={cl.content}>
                     <Suspense fallback={<div>Loading...</div>}>
                         <Routes>

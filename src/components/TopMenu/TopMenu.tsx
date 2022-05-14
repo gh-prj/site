@@ -6,9 +6,9 @@ import styles from "./TopMenu.module.scss"
 const TopMenu = () => {
     return (
         <ul className={styles.top_menu}>
-            <li><Link to="/site">Home</Link></li>
+            <li className={styles.link}><Link to="/site">Home</Link></li>
             <li>Test
-                <ul >
+                <ul>
                     <li>
                         <Link to="/site/test" >Test</Link>
                     </li>
