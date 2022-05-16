@@ -3,6 +3,8 @@ import React, { Suspense } from 'react';
 import {
     BrowserRouter as Router, Routes, Route, Link
 } from 'react-router-dom'
+const DebouncedValue = React.lazy(() => import('../../pages/react/DebouncedValue/DebouncedValue'));
+const DebouncedCallback = React.lazy(() => import('../../pages/react/DebouncedCallback/DebouncedCallback'));
 const UseCallback = React.lazy(() => import('../../pages/react/hooks/useCallback/UseCallback'));
 const PageOne = React.lazy(() => import('../../pages/PageOne/PageOne'));
 const PageTwo = React.lazy(() => import('../../pages/PageTwo/PageTwo'))
@@ -39,6 +41,8 @@ const Layout = () => {
                             <Route path="/site/useref" element={<UseRef />} />
                             <Route path="/site/useeffect" element={<UseEffect />} />
                             <Route path="/site/usecontext" element={<UseContext />} />
+                            <Route path="/site/deb_v" element={<DebouncedValue />} />
+                            <Route path="/site/deb_c" element={<DebouncedCallback />} />
                         </Routes>
                     </Suspense>
                 </main>

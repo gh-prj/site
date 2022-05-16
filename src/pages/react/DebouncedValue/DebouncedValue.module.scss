@@ -1,0 +1,13 @@
+.container {
+  p {
+    width: 200px;
+    margin: 5px 0;
+  }
+  input:read-only {
+    outline: none !important;
+    border-color: #858585;
+    box-shadow: none;
+    border-width: 1px;
+    border-radius: 2px;
+  }
+}
