@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  //   align-content: center;
+  //   flex-grow: 3;
+  & > div {
+    flex-grow: 2;
+    // color: burlywood;
+    padding: 5px;
+    margin: 1px;
+    border: 1px dotted burlywood;
+    & > label:first-of-type {
+      display: block;
+      //   font-style: italic;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 5px;
+      color: chocolate;
+    }
+    & > p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  kbd {
+    background-color: lightgray;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 2px 3px;
+  }
+
+  meter {
+    width: 40px;
+    height: 16px;
+  }
+
+  progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80px;
+    height: 14px;
+  }
+  progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    box-shadow: 0 0 3px #666 inset;
+  }
+  progress[value]::-webkit-progress-value {
+    background: -webkit-linear-gradient(
+        -45deg,
+        transparent 30%,
+        #8ebf42 70%,
+        #8ebf42 40%,
+        transparent 30%
+      ),
+      -webkit-linear-gradient(top, #96f204, #8ebf42),
+      -webkit-linear-gradient(right, #96f204, #8ebf42);
+    background-size: 40px 20px, 10%;
+  }
+
+  blockquote {
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+  }
+
+  h4 {
+    margin: 3px;
+  }
+}

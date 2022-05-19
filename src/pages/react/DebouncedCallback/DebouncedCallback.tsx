@@ -15,11 +15,12 @@ const DebouncedCallback = () => {
         setFilteredData([...data])
     }, []);
     const filter = (substr: string) => {
-        const regex = RegExp(`${substr}`, 'g')
-        setFilteredData(data.filter(x => regex.test(x)))
+        const regex = new RegExp(`${substr}`, 'g')
+        setFilteredData(data.filter(x => x.match(regex)))
     }
     const debouncedFilter = useDebouncedCallback(filter, 1000)
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        console.log('onChange', e.target.value)
         debouncedFilter(e.target.value)
     }
 

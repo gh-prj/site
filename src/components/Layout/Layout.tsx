@@ -1,52 +1,29 @@
 /* eslint no-unused-vars: "off" */
 import React, { Suspense } from 'react';
-import {
-    BrowserRouter as Router, Routes, Route, Link
-} from 'react-router-dom'
-const DebouncedValue = React.lazy(() => import('../../pages/react/DebouncedValue/DebouncedValue'));
-const DebouncedCallback = React.lazy(() => import('../../pages/react/DebouncedCallback/DebouncedCallback'));
-const UseCallback = React.lazy(() => import('../../pages/react/hooks/useCallback/UseCallback'));
-const PageOne = React.lazy(() => import('../../pages/PageOne/PageOne'));
-const PageTwo = React.lazy(() => import('../../pages/PageTwo/PageTwo'))
-const UseState = React.lazy(() => import('../../pages/react/hooks/useState/UseState'))
-const UseRef = React.lazy(() => import('../../pages/react/hooks/useRef/UseRef'))
-const UseEffect = React.lazy(() => import('../../pages/react/hooks/useEffect/UseEffect'))
-const UseContext = React.lazy(() => import('../../pages/react/hooks/useContext/UseContext'))
-const Test = React.lazy(() => import('../../pages/Test/Test'))
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import SidebarRoutes from '../SidebarRoutes';
 import TopMenu from '../TopMenu/TopMenu';
-import cl from './Layout.module.scss'
+import MainContentRoutes from '../MainContentRoutes';
+import styles from './Layout.module.scss'
+import Loading from '../Loading/Loading';
 
 const Layout = () => {
     return (
         <Router>
-            <div className={cl.app}>
-                <nav className={cl.navbar}>
+            <div className={styles.app}>
+                <nav className={styles.navbar}>
                     <TopMenu />
                 </nav>
-                <div className={cl.sidebar}>
-                    <Routes>
-                        <Route path="/site/one" element={<div>Page One</div>} />
-                    </Routes>
+                <div className={styles.sidebar}>
+                    <SidebarRoutes />
                 </div>
-                <main className={cl.content}>
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Routes>
-                            <Route path="/site" element={<div>Home</div>} />
-                            <Route path="/site/one" element={<PageOne />} />
-                            <Route path="/site/two" element={<PageTwo />} />
-                            <Route path="/site/usestate" element={<UseState />} />
-                            <Route path="/site/usecallback" element={<UseCallback />} />
-                            <Route path="/site/test" element={<Test />} />
-                            <Route path="/site/useref" element={<UseRef />} />
-                            <Route path="/site/useeffect" element={<UseEffect />} />
-                            <Route path="/site/usecontext" element={<UseContext />} />
-                            <Route path="/site/deb_v" element={<DebouncedValue />} />
-                            <Route path="/site/deb_c" element={<DebouncedCallback />} />
-                        </Routes>
+                <main className={styles.content}>
+                    {/* <Loading /> */}
+                    <Suspense fallback={<Loading />}>
+                        <MainContentRoutes />
                     </Suspense>
                 </main>
-                <footer className={cl.footer}>footer</footer>
+                <footer className={styles.footer}>footer</footer>
             </div>
         </Router>
 
@@ -55,11 +32,4 @@ const Layout = () => {
 
 export default Layout;
 
-function One() {
-    return <div>One</div>
-}
-
-function Two() {
-    return <div>Two</div>
-}
 

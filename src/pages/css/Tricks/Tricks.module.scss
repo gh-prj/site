@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  //   align-content: center;
+  //   flex-grow: 3;
+  & > div {
+    flex-grow: 2;
+    // color: burlywood;
+    padding: 5px;
+    margin: 1px;
+    border: 1px dotted burlywood;
+    & > label:first-of-type {
+      display: block;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 5px;
+      color: chocolate;
+    }
+    & > p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

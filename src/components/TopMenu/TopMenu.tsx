@@ -10,7 +10,7 @@ const TopMenu = () => {
             <li>Test
                 <ul>
                     <li>
-                        <Link to="/site/test" >Test</Link>
+                        <Link to="/site/test">Test</Link>
                     </li>
                 </ul>
             </li>
@@ -43,6 +43,7 @@ const TopMenu = () => {
                     <li><Link to="/site/two">222</Link></li>
                 </ul>
             </li>
+            <li className={styles.link}><Link to="/site/html">HTML</Link></li>
             <li>CSS
                 <ul>
                     <li className={styles.hasch}>Animations
@@ -51,6 +52,7 @@ const TopMenu = () => {
                             <li>2</li>
                         </ul>
                     </li>
+                    <li><Link to="/site/css_tricks">Tricks</Link></li>
                     <li>Grid</li>
                     <li>Flexbox</li>
                 </ul>
