@@ -1,0 +1,43 @@
+.container {
+  --diameter: 200px;
+  --left: 100px;
+  --font-size: 40px;
+  --color: rgb(0, 124, 17);
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(245, 243, 229, 0.8);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: var(--font-size);
+  .spinner {
+    position: relative;
+    // width: calc(var(--diameter) * 1px);
+    // height: calc(var(--diameter) * 1px);
+    width: var(--diameter);
+    height: var(--diameter);
+    animation: rotate 4s linear infinite;
+    span {
+      display: inline-block;
+      padding: 0px;
+      position: absolute;
+      height: 100%;
+      top: 0px;
+      //   left: calc(var(--diameter) / 2 * 1px);
+      left: var(--left);
+      color: var(--color);
+      transform: translateX(-50%) rotate(calc(40deg * var(--idx) - 90deg));
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+}
