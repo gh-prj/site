@@ -21,7 +21,7 @@ const TopMenu = () => {
                             <li><Link to="/site/usestate">useState</Link></li>
                             <li><Link to="/site/useref">useRef</Link></li>
                             <li><Link to="/site/useeffect">useEffect</Link></li>
-                            <li>useMemo</li>
+                            <li><Link to="/site/usememo">useMemo</Link></li>
                             <li><Link to="/site/usecallback">useCallback</Link></li>
                             <li><Link to="/site/usecontext">useContext</Link></li>
                         </ul>

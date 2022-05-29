@@ -1,0 +1,19 @@
+.content {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  column-gap: 20px;
+  & > div {
+    display: flex;
+    column-gap: 5px;
+  }
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+    margin-block-start: 5px;
+  }
+  button {
+    width: 70px;
+    height: 30px;
+  }
+}
