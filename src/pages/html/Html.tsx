@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Html.module.scss'
 import imgLarge from './large.png'
 import imgMedium from './medium.png'
 import imgSmall from './small.png'
 
 const Html = () => {
+    const [rangeValue, setRangeValue] = useState("1.7");
     return (
         <div className={styles.container}>
             <div>
@@ -150,6 +151,7 @@ const Html = () => {
             <div>
                 <label>picture</label>
                 <p>
+                    <p style={{ maxWidth: 250, margin: 0 }}>Resizing the window will result in showing different pictures.</p>
                     <picture>
                         <source srcSet={imgLarge} media="(min-width: 900px)" />
                         <source srcSet={imgMedium} media="(min-width: 600px)" />
@@ -175,6 +177,24 @@ const Html = () => {
                 <template>
                     <h4>Hello <span>Tom</span>!</h4>
                 </template>
+            </div>
+            <div>
+                <label>range</label>
+                <p>
+                    <input type="range" min="0" max="5" step="0.1"
+                        value={rangeValue} onChange={(e) => setRangeValue(e.target.value)} />
+                    <span>  {rangeValue}</span>
+                </p>
+            </div>
+            <div>
+                <label>white-space: pre</label>
+                <p>
+                    <div style={{ whiteSpace: 'pre' }}>
+                        {`+x   x   x
+    x   x   x   x   x
++x   x   x`}
+                    </div>
+                </p>
             </div>
         </div >
     );

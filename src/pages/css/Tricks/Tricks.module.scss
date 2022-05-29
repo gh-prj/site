@@ -2,11 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  //   align-content: center;
-  //   flex-grow: 3;
   & > div {
+    position: relative;
     flex-grow: 2;
-    // color: burlywood;
     padding: 5px;
     margin: 1px;
     border: 1px dotted burlywood;
@@ -20,6 +18,435 @@
     & > p {
       padding: 0;
       margin: 0;
+    }
+
+    div.pointerEvents {
+      user-select: none;
+      span {
+        display: inline-block;
+        background-color: dimgray;
+        color: white;
+        width: 30px;
+        padding: 0 2px;
+      }
+      .outerDiv {
+        position: relative;
+        display: inline-block;
+        cursor: default;
+        margin-left: 15px;
+        color: transparent;
+        z-index: 1;
+      }
+      .innerDiv {
+        position: relative;
+        top: -1px;
+        width: 100%;
+        background-color: transparent;
+        button {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      button {
+        cursor: pointer;
+        width: 80px;
+        &.plusOne {
+          animation: fadeOut 1s ease forwards;
+        }
+        &.disableEvents {
+          animation: fadeOut 1s ease forwards, disableEvents 1s ease forwards;
+        }
+      }
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0.08;
+        }
+      }
+      @keyframes disableEvents {
+        from {
+          pointer-events: all;
+        }
+        to {
+          pointer-events: none;
+        }
+      }
+    }
+
+    div.marginAuto {
+      width: 180px;
+      height: 100px;
+      background-color: bisque;
+      div {
+        background-color: aquamarine;
+        width: 70%;
+        height: 18px;
+        text-align: center;
+      }
+    }
+
+    div.selection {
+      pre::selection {
+        background-color: green;
+        color: white;
+      }
+    }
+
+    div.customcheckbox {
+      .checkbox {
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        user-select: none;
+        input {
+          position: absolute;
+          cursor: pointer;
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 21px;
+          height: 21px;
+          border: 1px solid #777;
+          border-radius: 3px;
+          background-color: #eee;
+          &::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 7px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+          }
+        }
+        &:hover .checkmark {
+          background-color: #ccc;
+        }
+        & input:checked ~ .checkmark {
+          background-color: #07d656;
+          border-color: transparent;
+          &::after {
+            display: block;
+          }
+        }
+      }
+    }
+
+    div.invert {
+      display: flex;
+      max-width: 350px;
+      column-gap: 5px;
+      div {
+        p {
+          color: black;
+          background: white;
+          margin: 3px 0;
+          padding: 3px;
+          border: 1px solid green;
+        }
+        a {
+          font-size: 2rem;
+          color: rgb(48, 112, 53);
+        }
+        &:last-child {
+          filter: invert(1);
+        }
+      }
+    }
+
+    div.adaptText {
+      font-size: 62.5%;
+      div {
+        font-size: 1.4rem;
+      }
+      @media screen and (max-width: 1000px) {
+        div {
+          font-size: 1rem;
+        }
+      }
+      @media screen and (max-width: 700px) {
+        div {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    div.shadows {
+      height: 50px;
+      h4 {
+        margin: 3px 0;
+        box-shadow: 0px 10px 10px rgba(255, 0, 0, 0.2),
+          0px 20px 20px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    div.background {
+      h3 {
+        display: inline;
+        font-size: 5rem;
+        // background: linear-gradient(to left, red, green);
+        background-image: url("./tiger.png");
+        background-size: 98%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h1 {
+        display: inline;
+        font-size: 4rem;
+        font-weight: 700;
+        background-image: url("./firework.jpeg");
+        background-size: cover;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+
+    div.tooltip {
+      [data-tooltip] {
+        font-size: 1.2rem;
+        margin: 25px 0 5px 0;
+        position: relative;
+      }
+      [data-tooltip]:hover::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        padding: 1px 6px;
+        background-color: rgb(155, 116, 18);
+        color: white;
+        width: 100%;
+        top: -0.3rem;
+        left: 50%;
+        transform: translate(-50%, -100%);
+      }
+    }
+
+    div.is {
+      font-size: 0.8rem;
+      :is(ol, ul) :is(ol, ul) li {
+        color: blue;
+      }
+    }
+
+    div.counters {
+      counter-reset: heading;
+      h5::before {
+        content: "Part " counter(heading, upper-roman) ": ";
+        counter-increment: heading;
+        position: absolute;
+        left: 0;
+        background-color: lightpink;
+      }
+      & > ol {
+        padding-inline-start: 0;
+      }
+      ol {
+        counter-reset: list;
+        list-style-type: none;
+      }
+      li::before {
+        content: counters(list, ".") ". ";
+        counter-increment: list;
+        background-color: aqua;
+      }
+      h5 {
+        position: relative;
+        margin: 2px 0;
+        padding-left: 55px;
+      }
+    }
+
+    div.conicGradient {
+      div {
+        display: inline-block;
+        margin-left: 5px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: conic-gradient(orange, darkblue, orange);
+        & + div {
+          background: conic-gradient(
+            red 0.2turn,
+            green 0.2turn 0.6turn,
+            cyan 0.6turn 0.7turn,
+            blue 0.7turn
+          );
+        }
+      }
+    }
+
+    div.ellipsis {
+      div {
+        width: 100px;
+        background: #6fc590;
+        & + div {
+          margin-top: 5px;
+          background: #72dbdf;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
+
+    div.textShadow {
+      h1 {
+        font-size: 3rem;
+        margin: 0;
+        color: blue;
+        text-shadow: 5px -5px 3px red;
+      }
+    }
+
+    div.all {
+      h3 {
+        background: #777;
+        color: lightgreen;
+        font-size: 1.5rem;
+      }
+      h3 + h3 {
+        all: initial;
+      }
+    }
+
+    div.radius {
+      div {
+        background: coral;
+        width: 100px;
+        height: 50px;
+        margin-bottom: 5px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        &:first-child {
+          width: 50px;
+        }
+        &:last-child {
+          border-radius: 9999px;
+        }
+      }
+    }
+
+    div.transform {
+      button {
+        display: block;
+        margin: 10px;
+        width: 50px;
+        height: 20px;
+      }
+      .btn {
+        transform: scale(var(--scale, 1.2)) rotate(var(--angle, -10deg));
+      }
+      .big {
+        --scale: 1.5;
+      }
+      .down {
+        --angle: 10deg;
+      }
+    }
+
+    div.resizable {
+      font-size: 0.8rem;
+      width: 350px;
+      div {
+        resize: both;
+        overflow: hidden;
+        // display: inline-block;
+        border: 1px solid lightgray;
+        min-width: 100px;
+        width: 200px;
+        max-width: 330px;
+        min-height: 30px;
+        max-height: 180px;
+      }
+    }
+
+    div.aspectRatio {
+      div {
+        background: #99e609;
+        color: rgb(34, 3, 92);
+        margin: 5px;
+        display: inline-block;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+      }
+      .old {
+        aspect-ratio: 4/3;
+      }
+      .new {
+        aspect-ratio: 16/9;
+      }
+    }
+
+    div.calc {
+      & > div {
+        background: darkgrey;
+        padding: 1px;
+        div {
+          height: 20px;
+          background: rgb(199, 22, 22);
+          --percentage: 33;
+          width: calc(var(--percentage) * 1%);
+        }
+      }
+    }
+
+    div.scrollPaddingTop {
+      position: relative;
+      width: 200px;
+      height: 150px;
+
+      // &::-webkit-scrollbar {
+      //   -webkit-appearance: none;
+      //   width: 6px;
+      // }
+
+      // &::-webkit-scrollbar-thumb {
+      //   border-radius: 5px;
+      //   background-color: rgba(0, 0, 0, 0.5);
+      //   // -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+      // }
+
+      background: #ddd;
+      overflow-y: scroll;
+      --header-height: 30px;
+      scroll-padding-top: calc(var(--header-height) + 5px);
+      scroll-behavior: smooth;
+      header {
+        background: #72dbdf;
+        color: #fff;
+        height: 30px;
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      div h6 {
+        font-size: 0.9rem;
+        margin: 7px 0;
+        color: red;
+      }
+    }
+
+    div.test {
+      display: block;
+      width: 10px;
+      height: 30px;
+      background-color: hsl(90, 100%, 50%);
     }
   }
 }

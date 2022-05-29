@@ -14,11 +14,11 @@ body {
   flex-direction: row;
   list-style-type: none;
   padding: 5px;
+  li {
+    text-align: left;
+  }
 }
 
-li {
-  text-align: left;
-}
 .top_menu > li {
   position: relative;
   // display: inline-block;
@@ -82,6 +82,7 @@ li {
 }
 
 .top_menu > li:hover > ul {
+  z-index: 10;
   //   overflow-x: visible;
   overflow-y: visible;
   //   border: 1px solid black;
@@ -187,17 +188,19 @@ li:hover > .vmenu {
   }
 }
 
-a {
-  display: inline-block;
-  width: 100%;
-}
+.top_menu {
+  a {
+    display: inline-block;
+    width: 100%;
+  }
 
-a:link,
-a:visited {
-  text-decoration: none !important;
-  color: black;
-}
+  a:link,
+  a:visited {
+    text-decoration: none !important;
+    color: black;
+  }
 
-li:hover > a {
-  color: #f63030;
+  li:hover > a {
+    color: #f63030;
+  }
 }

@@ -1,6 +1,6 @@
 .app {
   display: grid;
-  min-height: 98vh;
+  height: 98vh;
   grid-template-columns: 100px 1fr;
   grid-template-rows: 40px 1fr 28px;
   background-color: lightgrey;
@@ -27,6 +27,7 @@
   background-color: rgb(245, 243, 229);
   text-align: left;
   padding: 10px;
+  overflow-y: scroll;
 }
 
 .footer {
