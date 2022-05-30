@@ -24,6 +24,7 @@ const TopMenu = () => {
                             <li><Link to="/site/usememo">useMemo</Link></li>
                             <li><Link to="/site/usecallback">useCallback</Link></li>
                             <li><Link to="/site/usecontext">useContext</Link></li>
+                            <li><Link to="/site/usereducer">useReducer</Link></li>
                         </ul>
                     </li>
                     <li className={styles.hasch}>Debouncing

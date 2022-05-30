@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const UseReducer = React.lazy(() => import('../pages/react/hooks/useReducer/UseReducer'));
 const UseMemo = React.lazy(() => import('../pages/react/hooks/useMemo/UseMemo'));
 const Tricks = React.lazy(() => import('../pages/css/Tricks/Tricks'));
 const Html = React.lazy(() => import('../pages/html/Html'));
@@ -27,6 +28,7 @@ const MainContentRoutes = () => {
             <Route path="/site/usememo" element={<UseMemo />} />
             <Route path="/site/useeffect" element={<UseEffect />} />
             <Route path="/site/usecontext" element={<UseContext />} />
+            <Route path="/site/usereducer" element={<UseReducer />} />
             <Route path="/site/deb_v" element={<DebouncedValue />} />
             <Route path="/site/deb_c" element={<DebouncedCallback />} />
             <Route path="/site/html" element={<Html />} />
