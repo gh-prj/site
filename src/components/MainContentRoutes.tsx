@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Checkbox = React.lazy(() => import('../pages/animations/Checkbox/Checkbox'));
+const TextTyping = React.lazy(() => import('../pages/animations/TextTyping/TextTyping'));
 const UseReducer = React.lazy(() => import('../pages/react/hooks/useReducer/UseReducer'));
 const UseMemo = React.lazy(() => import('../pages/react/hooks/useMemo/UseMemo'));
 const Tricks = React.lazy(() => import('../pages/css/Tricks/Tricks'));
@@ -33,6 +35,8 @@ const MainContentRoutes = () => {
             <Route path="/site/deb_c" element={<DebouncedCallback />} />
             <Route path="/site/html" element={<Html />} />
             <Route path="/site/css_tricks" element={<Tricks />} />
+            <Route path="/site/text_typing" element={<TextTyping />} />
+            <Route path="/site/checkbox" element={<Checkbox />} />
         </Routes>
     );
 }

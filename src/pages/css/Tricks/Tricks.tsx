@@ -125,7 +125,7 @@ const Tricks = () => {
                 <label>Custom checkbox</label>
                 <div className={styles.customcheckbox}>
                     <input type="checkbox" /> Original
-                        <label className={styles.checkbox}>Custom
+                    <label className={styles.checkbox}>Custom
                         <input type="checkbox" />
                         <span className={styles.checkmark}></span>
                     </label>

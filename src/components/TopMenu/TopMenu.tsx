@@ -49,8 +49,8 @@ const TopMenu = () => {
                 <ul>
                     <li className={styles.hasch}>Animations
                         <ul className={styles.vmenu}>
-                            <li>1</li>
-                            <li>2</li>
+                            <li><Link to="/site/text_typing">Text Typing</Link></li>
+                            <li><Link to="/site/checkbox">Checkbox</Link></li>
                         </ul>
                     </li>
                     <li><Link to="/site/css_tricks">Tricks</Link></li>

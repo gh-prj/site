@@ -1,0 +1,82 @@
+.container {
+  --border-width: 2px;
+  --border-color: #777;
+  --border: var(--border-width) solid var(--border-color);
+  --checkmark-color: rgba(7, 214, 86, 1);
+  --checkmark-border: var(--border-width) solid var(--checkmark-color);
+  @mixin not-checked {
+    width: 21px;
+    height: 21px;
+    border: var(--border);
+  }
+  @mixin checked {
+    transform: translate(8px, 1px) rotate(45deg);
+    width: 10px;
+    height: 17px;
+    border-right: var(--checkmark-border);
+    border-bottom: var(--checkmark-border);
+    border-left: none;
+    border-top: none;
+  }
+  .checkbox {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+    input {
+      position: absolute;
+      cursor: pointer;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .checkmark {
+      position: absolute;
+      box-sizing: border-box;
+      top: 0;
+      left: 0;
+      &.init {
+        @include not-checked();
+      }
+      &.an {
+        animation: animate_b 0.3s ease forwards;
+      }
+    }
+    & input:checked ~ .checkmark {
+      &.init {
+        @include checked();
+      }
+      &.an {
+        animation: animate_f 0.3s ease forwards;
+      }
+    }
+  }
+
+  @keyframes animate_f {
+    from {
+      @include not-checked();
+    }
+    5% {
+      border-left: none;
+      border-top: none;
+    }
+    to {
+      @include checked();
+    }
+  }
+
+  @keyframes animate_b {
+    from {
+      @include checked();
+    }
+    95% {
+      border: var(--border);
+    }
+    to {
+      @include not-checked();
+    }
+  }
+}
