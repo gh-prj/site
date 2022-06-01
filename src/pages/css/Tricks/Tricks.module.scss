@@ -442,6 +442,34 @@
       }
     }
 
+    div.triangle {
+      width: 135px;
+      height: 100px;
+      background: rgb(243, 210, 120);
+      div {
+        position: relative;
+        background: #ccc;
+        background: transparent;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 120px;
+        height: 80px;
+        overflow: hidden;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          transform-origin: bottom left;
+          transform: rotate(45deg);
+          background: rgb(137, 64, 231);
+        }
+      }
+    }
+
     div.test {
       display: block;
       width: 10px;

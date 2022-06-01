@@ -10,6 +10,12 @@ const Tricks = () => {
     return (
         <div className={styles.container}>
             <div>
+                <label>Triangle</label>
+                <div className={styles.triangle}>
+                    <div></div>
+                </div>
+            </div>
+            <div>
                 <label>scrollPaddingTop</label>
                 <div className={styles.scrollPaddingTop}>
                     <header><a href="#p2" onClick={(e) => {
