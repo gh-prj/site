@@ -3,8 +3,10 @@ import styles from './TextTyping.module.scss'
 
 const TextTyping = () => {
     return (
-        <div>
-            TextTyping
+        <div className={styles.container}>
+            <div className={styles.loader}>
+                <h1>Loading...</h1>
+            </div>
         </div>
     );
 }

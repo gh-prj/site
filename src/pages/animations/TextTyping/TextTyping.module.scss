@@ -1,2 +1,60 @@
 .container {
+  --color: rgb(87, 189, 3);
+  background: hsla(210, 100%, 75%, 0.1);
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  .loader {
+    position: relative;
+    overflow: hidden;
+    -webkit-box-reflect: below -4px linear-gradient(transparent, #0005);
+    ::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 2px;
+      background: var(--color);
+      animation: blink 0.8s steps(3) infinite;
+    }
+    h1 {
+      position: relative;
+      color: var(--color);
+      letter-spacing: 5px;
+      font-size: 2rem;
+      text-transform: uppercase;
+      transform: scaleY(1.5);
+      animation: typing 8s steps(10) infinite;
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    75% {
+      opacity: 1;
+    }
+    76%,
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes typing {
+    0%,
+    90%,
+    100% {
+      width: 0;
+    }
+    30%,
+    60% {
+      width: 242px;
+    }
+  }
 }
