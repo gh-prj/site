@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Cubes = React.lazy(() => import('../pages/animations/Cubes/Cubes'));
 const Checkbox = React.lazy(() => import('../pages/animations/Checkbox/Checkbox'));
 const TextTyping = React.lazy(() => import('../pages/animations/TextTyping/TextTyping'));
 const UseReducer = React.lazy(() => import('../pages/react/hooks/useReducer/UseReducer'));
@@ -37,6 +38,7 @@ const MainContentRoutes = () => {
             <Route path="/site/css_tricks" element={<Tricks />} />
             <Route path="/site/text_typing" element={<TextTyping />} />
             <Route path="/site/checkbox" element={<Checkbox />} />
+            <Route path="/site/cubes" element={<Cubes />} />
         </Routes>
     );
 }

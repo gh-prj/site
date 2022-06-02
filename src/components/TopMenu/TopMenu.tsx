@@ -51,6 +51,7 @@ const TopMenu = () => {
                         <ul className={styles.vmenu}>
                             <li><Link to="/site/text_typing">Text Typing</Link></li>
                             <li><Link to="/site/checkbox">Checkbox</Link></li>
+                            <li><Link to="/site/cubes">Cubes</Link></li>
                         </ul>
                     </li>
                     <li><Link to="/site/css_tricks">Tricks</Link></li>
