@@ -49,11 +49,11 @@ const TopMenu = () => {
                 <ul>
                     <li className={styles.hasch}>Animations
                         <ul className={styles.vmenu}>
-                            <li><Link to="/site/text_typing">Text Typing</Link></li>
                             <li><Link to="/site/checkbox">Checkbox</Link></li>
-                            <li><Link to="/site/tetrahedron">Tetrahedron</Link></li>
+                            <li><Link to="/site/text_typing">Text Typing</Link></li>
                             <li><Link to="/site/cubes">Cubes</Link></li>
                             <li><Link to="/site/cube3d">Cube3D</Link></li>
+                            <li><Link to="/site/tetrahedron">Tetrahedron</Link></li>
                         </ul>
                     </li>
                     <li><Link to="/site/css_tricks">Tricks</Link></li>

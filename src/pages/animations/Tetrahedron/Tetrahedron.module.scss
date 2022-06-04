@@ -1,0 +1,86 @@
+.outerContainer {
+  position: relative;
+  background: rgb(234, 235, 233);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .container {
+    // border: 1px dotted #f00;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // perspective-origin: center center;
+    // perspective: 200px;
+  }
+  .tetra {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    // background: hsl(0, 0%, 80%, 0.5);
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    // transform: rotateX(60deg) rotateY(10deg) rotateZ(-45deg);
+    animation: animate 12s linear infinite;
+  }
+  span {
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-width: 86.6px 50px;
+    border-style: solid;
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      font-size: 40px;
+      top: 30px;
+      left: -10px;
+      color: #000;
+      transform: scale(-1, 1);
+    }
+  }
+  --opacity: 0.7;
+  span:nth-child(1) {
+    transform-origin: top left;
+    border-bottom-color: hsl(0, 100%, 50%, var(--opacity));
+    transform: translateX(45px) translateY(-51.7px);
+  }
+  span:nth-child(2) {
+    border-bottom-color: hsl(60, 100%, 50%, var(--opacity));
+    transform-origin: center bottom;
+    transform: translateX(45px) translateY(-51.7px) rotateX(-70.5deg);
+    &::before {
+      transform: scale(1, 1);
+    }
+  }
+  span:nth-child(3) {
+    transform-origin: right bottom;
+    border-bottom-color: hsl(120, 100%, 50%, var(--opacity));
+    transform: translateX(45px) translateY(-51.7px) rotateZ(60deg)
+      rotateX(-109.5deg);
+  }
+  span:nth-child(4) {
+    transform-origin: left bottom;
+    border-bottom-color: hsl(300, 100%, 50%, var(--opacity));
+    transform: translateX(45px) translateY(-51.7px) rotateZ(-60deg)
+      rotateX(-109.5deg);
+  }
+
+  @keyframes animate {
+    from {
+      transform: rotateX(60deg) rotateY(10deg) rotateZ(-45deg);
+    }
+    to {
+      transform: rotateX(780deg) rotateY(1090deg) rotateZ(315deg);
+    }
+  }
+}
