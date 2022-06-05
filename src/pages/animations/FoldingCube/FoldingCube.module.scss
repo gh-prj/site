@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    --duration: 12s;
+    --duration: 18s;
     .space {
       position: relative;
       width: 90%;
@@ -23,6 +23,17 @@
       transform-style: preserve-3d;
       transform: translateY(50px) rotateZ(-60deg) rotateX(-30deg)
         rotateY(-30deg);
+      //   animation: animate 12s linear infinite;
+      @keyframes animate {
+        from {
+          transform: translateY(50px) rotateZ(-60deg) rotateX(-30deg)
+            rotateY(-30deg);
+        }
+        to {
+          transform: translateY(50px) rotateZ(300deg) rotateX(330deg)
+            rotateY(690deg);
+        }
+      }
       div {
         display: inline-block;
         position: relative;
@@ -46,10 +57,10 @@
             5% {
               transform: rotateY(90deg);
             }
-            40% {
+            45% {
               transform: rotateY(90deg);
             }
-            45% {
+            50% {
               transform: rotateY(0deg);
             }
             to {
@@ -66,16 +77,16 @@
             from {
               transform: rotateY(0deg);
             }
-            10% {
+            14% {
               transform: rotateY(0deg);
             }
-            15% {
+            19% {
               transform: rotateY(90deg);
             }
-            50% {
+            59% {
               transform: rotateY(90deg);
             }
-            55% {
+            64% {
               transform: rotateY(0deg);
             }
             to {
@@ -92,16 +103,16 @@
           @keyframes four {
             from {
             }
-            5% {
+            7% {
               transform: rotateY(0deg);
             }
-            10% {
+            12% {
               transform: rotateY(90deg);
             }
-            60% {
+            73% {
               transform: rotateY(90deg);
             }
-            65% {
+            78% {
               transform: rotateY(0deg);
             }
             to {
@@ -120,16 +131,16 @@
           @keyframes five {
             from {
             }
-            15% {
+            21% {
               transform: scale(-1, 1) rotateX(180deg);
             }
-            20% {
+            26% {
               transform: scale(-1, 1) rotateX(180deg) rotateX(90deg);
             }
-            45% {
+            52% {
               transform: scale(-1, 1) rotateX(180deg) rotateX(90deg);
             }
-            50% {
+            57% {
               transform: scale(-1, 1) rotateX(180deg);
             }
             to {
@@ -148,16 +159,16 @@
             from {
               transform: rotateX(180deg) rotateY(180deg);
             }
-            20% {
+            28% {
               transform: rotateX(180deg) rotateY(180deg);
             }
-            25% {
+            33% {
               transform: rotateX(180deg) rotateY(180deg) rotateX(90deg);
             }
-            55% {
+            66% {
               transform: rotateX(180deg) rotateY(180deg) rotateX(90deg);
             }
-            60% {
+            71% {
               transform: rotateX(180deg) rotateY(180deg);
             }
             to {
