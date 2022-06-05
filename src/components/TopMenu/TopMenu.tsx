@@ -54,6 +54,7 @@ const TopMenu = () => {
                             <li><Link to="/site/cubes">Cubes</Link></li>
                             <li><Link to="/site/cube3d">Cube3D</Link></li>
                             <li><Link to="/site/tetrahedron">Tetrahedron</Link></li>
+                            <li><Link to="/site/folding">Folding Cube</Link></li>
                         </ul>
                     </li>
                     <li><Link to="/site/css_tricks">Tricks</Link></li>
