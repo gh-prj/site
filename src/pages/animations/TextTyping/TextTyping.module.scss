@@ -29,8 +29,8 @@
     h1 {
       position: relative;
       color: var(--color);
-      letter-spacing: 5px;
-      font-size: 2rem;
+      letter-spacing: 3px;
+      font-size: 2.5rem;
       text-transform: uppercase;
       transform: scaleY(1.5);
       animation: typing 8s steps(10) infinite;
@@ -60,7 +60,11 @@
     0%,
     80%,
     100% {
-      width: 242px;
+      // width: 242px;
+      width: 230px;
+    }
+    20% {
+      width: 0;
     }
     20% {
       width: 0;
