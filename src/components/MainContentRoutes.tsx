@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Creative = React.lazy(() => import('../pages/animations/Creative/Creative'));
 const Airplane = React.lazy(() => import('../pages/animations/Airplane/Airplane'));
 const FoldingCube = React.lazy(() => import('../pages/animations/FoldingCube/FoldingCube'));
 const Cube3D = React.lazy(() => import('../pages/animations/Cube3D/Cube3D'));
@@ -47,6 +48,7 @@ const MainContentRoutes = () => {
             <Route path="/site/cube3d" element={<Cube3D />} />
             <Route path="/site/folding" element={<FoldingCube />} />
             <Route path="/site/airplane" element={<Airplane />} />
+            <Route path="/site/creative" element={<Creative />} />
         </Routes>
     );
 }

@@ -1,0 +1,44 @@
+.container {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: #8e2c2c;
+  h2 {
+    position: relative;
+    font-size: 3em;
+    text-transform: uppercase;
+    color: #8e2c2c;
+    -webkit-text-stroke: 0.3vw #0f0d99;
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      color: #aba123;
+      border-right: 2px solid #aba123;
+      -webkit-text-stroke: 0.1vw #8e2c2c;
+      overflow: hidden;
+      animation: changeColor 5s linear infinite;
+    }
+  }
+
+  @keyframes changeColor {
+    0%,
+    8%,
+    100% {
+      width: 0%;
+    }
+    65%,
+    85% {
+      width: 100%;
+    }
+  }
+}
