@@ -1,0 +1,15 @@
+.container {
+  position: absolute;
+  background: rgb(159, 194, 245);
+  background: rgb(199, 219, 250);
+  background: transparent;
+  top: 24px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow-y: scroll;
+  div {
+    margin: 1px 10px;
+    background: #d6cc73;
+  }
+}

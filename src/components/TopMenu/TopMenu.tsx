@@ -33,6 +33,7 @@ const TopMenu = () => {
                             <li><Link to="/site/deb_c">Callback</Link></li>
                         </ul>
                     </li>
+                    <li><Link to="/site/redux/users">Redux</Link></li>
                     <li className={styles.hasch}>subitem_2
                         <ul className={styles.vmenu}>
                             <li><Link to="/site/one">111</Link></li>

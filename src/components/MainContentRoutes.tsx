@@ -1,5 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Redux = React.lazy(() => import('../pages/react/Redux/components/Redux'));
+const TodoList = React.lazy(() => import('../pages/react/Redux/components/TodoList'));
+const UserList = React.lazy(() => import('../pages/react/Redux/components/UserList'));
 const Water = React.lazy(() => import('../pages/animations/Water/Water'));
 const Creative = React.lazy(() => import('../pages/animations/Creative/Creative'));
 const Airplane = React.lazy(() => import('../pages/animations/Airplane/Airplane'));
@@ -51,6 +54,10 @@ const MainContentRoutes = () => {
             <Route path="/site/airplane" element={<Airplane />} />
             <Route path="/site/creative" element={<Creative />} />
             <Route path="/site/water" element={<Water />} />
+            <Route path="/site/redux/" element={<Redux />}>
+                <Route path="users" element={<UserList />} />
+                <Route path="todos" element={<TodoList />} />
+            </Route>
         </Routes>
     );
 }

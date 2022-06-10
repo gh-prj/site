@@ -1,0 +1,31 @@
+.container {
+  position: relative;
+  background: rgb(255, 187, 0);
+  background: rgb(243, 223, 167);
+  height: 100%;
+  // overflow: hidden;
+  // overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  & > div {
+    overflow-y: scroll;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 15px;
+    background: rgb(210, 223, 205);
+    height: 24px;
+    padding-right: 10px;
+    a {
+      text-decoration: none;
+      color: #000;
+      &.active {
+        color: red;
+      }
+    }
+  }
+}

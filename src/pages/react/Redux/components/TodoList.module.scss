@@ -1,0 +1,17 @@
+.container {
+  position: absolute;
+  background: transparent;
+  top: 24px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow-y: scroll;
+  div {
+    border: 1px dotted green;
+    margin: 3px 3px;
+    background: rgb(162, 209, 156);
+    span {
+      color: brown;
+    }
+  }
+}

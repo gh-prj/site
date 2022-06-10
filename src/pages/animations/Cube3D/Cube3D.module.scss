@@ -72,25 +72,25 @@
         transform: rotateY(0deg);
       }
       25% {
-        transform: rotateY(360deg);
+        transform: rotateY(359.99deg);
       }
       25.01% {
         transform: rotateX(0deg);
       }
       50% {
-        transform: rotateX(360deg);
+        transform: rotateX(359.99deg);
       }
       50.01% {
         transform: rotateY(0deg);
       }
       75% {
-        transform: rotateY(-360deg);
+        transform: rotateY(-359.99deg);
       }
       75.01% {
         transform: rotateX(0deg);
       }
       100% {
-        transform: rotateX(-360deg);
+        transform: rotateX(-359.99deg);
       }
     }
   }
