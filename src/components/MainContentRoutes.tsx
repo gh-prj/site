@@ -1,5 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Events from '../pages/react/TypeScript/Events';
+import Props from '../pages/react/TypeScript/Props';
+import TypeScript from '../pages/react/TypeScript/TypeScript';
 const UseTransition = React.lazy(() => import('../pages/react/hooks/useTransition/UseTransition'));
 const Redux = React.lazy(() => import('../pages/react/Redux/components/Redux'));
 const TodoList = React.lazy(() => import('../pages/react/Redux/components/TodoList'));
@@ -58,6 +61,10 @@ const MainContentRoutes = () => {
             <Route path="/site/redux/" element={<Redux />}>
                 <Route path="users" element={<UserList />} />
                 <Route path="todos" element={<TodoList />} />
+            </Route>
+            <Route path="/site/ts/" element={<TypeScript />}>
+                <Route path="props" element={<Props />} />
+                <Route path="events" element={<Events />} />
             </Route>
             <Route path="/site/usetransition" element={<UseTransition />} />
         </Routes>
