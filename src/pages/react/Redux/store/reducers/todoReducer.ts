@@ -20,6 +20,8 @@ export const todoReducer = (
             return { ...state, loading: false, error: action.payload }
         case TodoActionType.FETCH_TODOS_SUCCESS:
             return { ...state, loading: false, todos: action.payload }
+        case TodoActionType.SET_PAGE:
+            return { ...state, page: action.payload}
         default:
             return state;
     }

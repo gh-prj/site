@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const UseTransition = React.lazy(() => import('../pages/react/hooks/useTransition/UseTransition'));
 const Redux = React.lazy(() => import('../pages/react/Redux/components/Redux'));
 const TodoList = React.lazy(() => import('../pages/react/Redux/components/TodoList'));
 const UserList = React.lazy(() => import('../pages/react/Redux/components/UserList'));
@@ -58,6 +59,7 @@ const MainContentRoutes = () => {
                 <Route path="users" element={<UserList />} />
                 <Route path="todos" element={<TodoList />} />
             </Route>
+            <Route path="/site/usetransition" element={<UseTransition />} />
         </Routes>
     );
 }

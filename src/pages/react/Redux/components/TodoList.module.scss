@@ -6,12 +6,26 @@
   left: 0px;
   right: 0px;
   overflow-y: scroll;
-  div {
+  div.todo {
     border: 1px dotted green;
     margin: 3px 3px;
     background: rgb(162, 209, 156);
     span {
       color: brown;
+    }
+  }
+  div.pager {
+    display: flex;
+    position: sticky;
+    bottom: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: rgba(148, 187, 245, 0.7);
+    div {
+      cursor: pointer;
+      padding: 3px 10px;
+      margin: 0 5px;
+      background: rgb(230, 238, 234);
     }
   }
 }

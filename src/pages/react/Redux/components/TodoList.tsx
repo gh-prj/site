@@ -5,11 +5,12 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import styles from './TodoList.module.scss'
 
 const TodoList: React.FC = () => {
-    const { todos, error, loading } = useTypedSelector((state) => state.todo)
-    const { fetchTodos } = useActions()
+    const { todos, error, loading, page, limit } = useTypedSelector((state) => state.todo)
+    const { fetchTodos, setTodosPage } = useActions()
+    const pages = [1, 2, 3, 4, 5]
     useEffect(() => {
-        fetchTodos()
-    }, []);
+        fetchTodos(page, limit)
+    }, [page]);
 
     if (loading) {
         return <div style={{
@@ -32,8 +33,25 @@ const TodoList: React.FC = () => {
     return (
         <div className={styles.container}>
             {todos.map((todo) => (
-                <div key={todo.id}><span>{todo.id}.</span> {todo.title}</div>
+                <div key={todo.id} className={styles.todo}>
+                    <span>{todo.id}.</span> {todo.title}
+                </div>
             ))}
+            <div className={styles.pager} >
+                {pages.map((p) => (
+                    <div
+                        key={p}
+                        onClick={() => setTodosPage(p)}
+                        style={{
+                            border: p === page
+                                ? "1px solid red"
+                                : "1px solid lightgrey",
+                        }}
+                    >
+                        {p}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
