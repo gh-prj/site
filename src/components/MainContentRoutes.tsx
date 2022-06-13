@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Events from '../pages/react/TypeScript/Events';
-import Props from '../pages/react/TypeScript/Props';
-import TypeScript from '../pages/react/TypeScript/TypeScript';
+const Events = React.lazy(() => import('../pages/react/TypeScript/Events'));
+const Props = React.lazy(() => import('../pages/react/TypeScript/Props'));
+const TypeScript = React.lazy(() => import('../pages/react/TypeScript/TypeScript'));
 const UseTransition = React.lazy(() => import('../pages/react/hooks/useTransition/UseTransition'));
 const Redux = React.lazy(() => import('../pages/react/Redux/components/Redux'));
 const TodoList = React.lazy(() => import('../pages/react/Redux/components/TodoList'));

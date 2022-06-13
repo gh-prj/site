@@ -9,6 +9,7 @@
   flex-direction: column;
   & > div {
     overflow-y: scroll;
+    padding: 10px;
   }
   nav {
     position: sticky;
@@ -28,5 +29,12 @@
         color: red;
       }
     }
+  }
+  pre {
+    border: 1px solid #777777;
+    box-shadow: 1px 1px 1px #aaa inset;
+    background: #eee;
+    padding: 10px;
+    overflow: scroll;
   }
 }
