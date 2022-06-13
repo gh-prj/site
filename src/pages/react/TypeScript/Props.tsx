@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-interface Props extends React.ComponentProps<"button"> {
+// interface Props extends React.ComponentProps<"button"> {
+interface Props extends React.ComponentPropsWithoutRef<"button"> {
     primary?: boolean;
     onClick?: () => void;
 }
