@@ -10,6 +10,7 @@ const TypeScript = () => {
             <nav>
                 <NavLink to="/site/ts/props" className={({ isActive }) => setActive(isActive)}>Props</NavLink>
                 <NavLink to="/site/ts/events" className={({ isActive }) => setActive(isActive)}>Events</NavLink>
+                <NavLink to="/site/ts/hooks" className={({ isActive }) => setActive(isActive)}>Hooks</NavLink>
             </nav>
             <div>
                 <Outlet />

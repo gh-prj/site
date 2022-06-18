@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Hooks = React.lazy(() => import('../pages/react/TypeScript/Hooks'));
 const Events = React.lazy(() => import('../pages/react/TypeScript/Events'));
 const Props = React.lazy(() => import('../pages/react/TypeScript/Props'));
 const TypeScript = React.lazy(() => import('../pages/react/TypeScript/TypeScript'));
@@ -65,6 +66,7 @@ const MainContentRoutes = () => {
             <Route path="/site/ts/" element={<TypeScript />}>
                 <Route path="props" element={<Props />} />
                 <Route path="events" element={<Events />} />
+                <Route path="hooks" element={<Hooks />} />
             </Route>
             <Route path="/site/usetransition" element={<UseTransition />} />
         </Routes>
