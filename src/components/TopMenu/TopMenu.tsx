@@ -36,15 +36,6 @@ const TopMenu = () => {
                     </li>
                     <li><Link to="/site/redux/users">Redux</Link></li>
                     <li><Link to="/site/ts/props">TypeScript</Link></li>
-                    <li className={styles.hasch}>subitem_2
-                        <ul className={styles.vmenu}>
-                            <li><Link to="/site/one">111</Link></li>
-                            <li>subsubitem_2</li>
-                            <li>subsubitem_3</li>
-                            <li>subsubitem_4</li>
-                        </ul>
-                    </li>
-                    <li><Link to="/site/two">222</Link></li>
                 </ul>
             </li>
             <li className={styles.link}><Link to="/site/html">HTML</Link></li>
@@ -66,27 +57,6 @@ const TopMenu = () => {
                     <li><Link to="/site/css_tricks">Tricks</Link></li>
                     <li>Grid</li>
                     <li>Flexbox</li>
-                </ul>
-            </li>
-            <li>item_3
-                <ul>
-                    <li>subitem_1</li>
-                    <li>subitem_2</li>
-                    <li className={styles.hasch}>si_3
-                        <ul className={styles.vmenu}>
-                            <li>sub-subitem_1</li>
-                            <li>sub-subitem_2</li>
-                            <li className={styles.hasch}>sub-subitem_3
-                                <ul className={styles.vmenu}>
-                                    <li>sub-subitem_1</li>
-                                    <li>sub-subitem_2</li>
-                                    <li>sub-subitem_3</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>subitem_4</li>
-                    <li>subitem_5</li>
                 </ul>
             </li>
         </ul>
