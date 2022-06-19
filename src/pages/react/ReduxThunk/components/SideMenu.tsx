@@ -12,8 +12,8 @@ const SideMenu: React.FC<SideMenuProps> = ({ active }) => {
     return (
         <div className={styles.container}>
             <ul>
-                <li className={active === "users" && styles.active || ""}><Link to="/site/redux/users" >Users</Link></li>
-                <li className={active === "todos" && styles.active || ""}><Link to="/site/redux/todos">Todos</Link></li>
+                <li className={active === "users" && styles.active || ""}><Link to="/site/reduxthunk/users" >Users</Link></li>
+                <li className={active === "todos" && styles.active || ""}><Link to="/site/reduxthunk/todos">Todos</Link></li>
             </ul>
         </div>
     );

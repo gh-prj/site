@@ -34,7 +34,7 @@ const TopMenu = () => {
                             <li><Link to="/site/deb_c">Callback</Link></li>
                         </ul>
                     </li>
-                    <li><Link to="/site/redux/users">Redux</Link></li>
+                    <li><Link to="/site/reduxthunk/users">Redux Thunk</Link></li>
                     <li><Link to="/site/saga">Redux-Saga</Link></li>
                     <li><Link to="/site/ts/props">TypeScript</Link></li>
                 </ul>
