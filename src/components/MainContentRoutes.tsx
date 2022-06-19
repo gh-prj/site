@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Redux = React.lazy(() => import('../pages/react/Redux/Redux'));
 const ReduxSaga = React.lazy(() => import('../pages/react/ReduxSaga/ReduxSaga'));
 const Hooks = React.lazy(() => import('../pages/react/TypeScript/Hooks'));
 const Events = React.lazy(() => import('../pages/react/TypeScript/Events'));
@@ -56,6 +57,7 @@ const MainContentRoutes = () => {
             <Route path="/site/airplane" element={<Airplane />} />
             <Route path="/site/creative" element={<Creative />} />
             <Route path="/site/water" element={<Water />} />
+            <Route path="/site/redux/" element={<Redux />} />
             <Route path="/site/reduxthunk/" element={<ReduxThunk />}>
                 <Route path="users" element={<UserList />} />
                 <Route path="todos" element={<TodoList />} />
