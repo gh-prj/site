@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider, useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
-import { legacy_createStore as createStore } from 'redux';
+import { legacy_createStore as createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension'
 import styles from './Redux.module.scss'
 
 const initialState = {
@@ -20,7 +21,7 @@ const reducer = (state = initialState, action: { type: Action, payload: number }
     }
 }
 
-const store = createStore(reducer)
+const store = createStore(reducer, composeWithDevTools())
 
 type RootState = ReturnType<typeof store.getState>
 
