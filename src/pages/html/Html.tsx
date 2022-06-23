@@ -135,7 +135,7 @@ const Html = () => {
                 <label>contenteditable</label>
                 <p>
                     <h4 contentEditable>This text is editable.</h4>
-                    <p contentEditable>
+                    <p contentEditable spellCheck="false">
                         Lorem ipsum dolor sit, amet consectetur
                         adipisicing elit. Repudiandae, voluptates?
                     </p>
