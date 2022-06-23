@@ -4,14 +4,14 @@ import { setUsers } from '../store/userReducer'
 
 const fetchUsers = function() {
     let prevLimit = 0
-    return (() => {
+    return () => {
         let limit
         do {
             limit = Math.ceil(Math.random() * 9)
         } while(limit === prevLimit)
         prevLimit = limit
         return fetch(`https://jsonplaceholder.typicode.com/users?_limit=${limit}`)
-    })
+    }
 }()
 
 function* fetchUsersWorker() {
