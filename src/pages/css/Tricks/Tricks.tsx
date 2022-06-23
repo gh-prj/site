@@ -10,6 +10,55 @@ const Tricks = () => {
     return (
         <div className={styles.container}>
             <div>
+                <label>columns</label>
+                <div className={styles.columns}>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, necessitatibus.</p>
+                    </div>
+                    <div>
+                        <p>Sit amet consectetur, adipisicing elit. Illum, necessitatibus.</p>
+                    </div>
+                    <div>
+                        <p>Ipsum dolor sit amet consectetur, adipisicing necessitatibus elit. Illum, sit amet ipsum adipisicing elit necessitatibus.</p>
+                    </div>
+                    <div>
+                        <p>Dolor sit amet ipsum consectetur, adipisicing elit. Illum, necessitatibus.</p>
+                    </div>
+                    <div>
+                        <p>Adipisicing ipsum dolor sit amet consectetur, elit. Illum, necessitatibus.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label>mix-blend-mode</label>
+                <div className={styles.mixBlendMode}>
+                    <p>Move cursor <a href="#">over here</a></p>
+                </div>
+            </div>
+            <div>
+                <label>open-quote</label>
+                <div className={styles.quotes}>
+                    <p>Quote marks look different depending on the <b>lang</b> attribute.
+                        <q lang="">lang=&#39;&#39; (empty)</q><span> </span>
+                        <q lang="en">lang=&#39;en&#39;</q><span> </span>
+                        <q lang="fr">lang=&#39;fr&#39;</q><span> </span>
+                        <q lang="de">lang=&#39;de&#39;</q><span> </span>
+                        <q lang="pl">lang=&#39;pl&#39;</q><span> </span>
+                        <q lang="ja">lang=&#39;ja&#39;</q><span> </span>
+                    </p>
+                    <blockquote lang="en">This is a blockquote.</blockquote>
+                    <blockquote lang="fr">This is a blockquote.</blockquote>
+                </div>
+            </div>
+            <div>
+                <label>currentColor</label>
+                <div className={styles.currentColor}>
+                    <p>Lorem ipsum dolor sit amet consectetur! Animi earum dicta quam culpa dolorum adipisci.</p>
+                    <blockquote>blockquote::before element has color &#39;currentColor&#39;</blockquote>
+                    <p>Repellendus esse voluptates iste vitae.</p>
+                </div>
+            </div>
+            <div>
                 <label>Triangle</label>
                 <div className={styles.triangle}>
                     <div></div>

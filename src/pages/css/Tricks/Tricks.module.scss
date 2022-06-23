@@ -470,6 +470,137 @@
       }
     }
 
+    div.currentColor {
+      padding-left: 15px;
+      max-width: 300px;
+      p {
+        margin: 5px 0;
+      }
+      blockquote {
+        position: relative;
+        background: #dbe4cc;
+        margin: 0;
+        padding: 10px;
+        color: #3b67f7;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 5px;
+          left: -15px;
+          top: 0;
+          bottom: 0;
+          background: currentColor;
+        }
+      }
+    }
+
+    div.quotes {
+      padding-left: 15px;
+      max-width: 300px;
+      p {
+        margin: 5px 0;
+      }
+      q {
+        &[lang="en"] {
+          background: #b6f1ee;
+        }
+        &[lang="fr"] {
+          background: #f375f7;
+        }
+        &[lang=""] {
+          background: #76fa81;
+        }
+        &[lang="pl"] {
+          background: #f1b6c8;
+        }
+        &[lang="de"] {
+          background: #f3e566;
+        }
+        &[lang="pl"] {
+          background: #b289f5;
+        }
+        &[lang="ja"] {
+          background: #a2b6ee;
+        }
+      }
+      blockquote {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        margin: 0 30px 0 0;
+        padding: 10px;
+        background: #b6f1bb;
+        &::before {
+          content: open-quote;
+          position: absolute;
+          font-size: 36px;
+          top: 0;
+          left: -18px;
+        }
+      }
+    }
+
+    div.mixBlendMode {
+      p {
+        isolation: isolate;
+        font-size: 20px;
+      }
+      a {
+        isolation: isolate;
+        position: relative;
+        text-decoration: none;
+        padding: 10px 10px;
+        font-weight: bold;
+        color: green;
+        transition: color 0.25s;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          transform-origin: 0 85%;
+          transform: scaleY(0.05);
+          // background: currentColor;
+          // mix-blend-mode: difference;
+          background: url("//unsplash.it/200");
+          mix-blend-mode: overlay;
+          background-size: cover;
+          transition: transform 0.25s;
+        }
+        &:focus {
+          outline: none;
+        }
+        &:focus,
+        &:hover {
+          color: yellow;
+          &::after {
+            transform: scaleY(1);
+          }
+        }
+      }
+    }
+
+    div.columns {
+      font-size: 10px;
+      columns: 10ch 3;
+      gap: 7px;
+      resize: both;
+      overflow: hidden;
+      width: 300px;
+      min-width: 150px;
+      max-width: 900px;
+      border: 1px solid #ccc;
+      padding: 5px;
+      div {
+        border: 1px solid;
+        padding: 0 5px;
+        margin: 0 0 5px 0;
+        break-inside: avoid;
+      }
+    }
+
     div.test {
       display: block;
       width: 10px;
