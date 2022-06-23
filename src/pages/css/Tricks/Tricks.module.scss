@@ -201,6 +201,7 @@
         background-image: url("./tiger.png");
         background-size: 98%;
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
       }
       h1 {
@@ -210,6 +211,7 @@
         background-image: url("./firework.jpeg");
         background-size: cover;
         -webkit-background-clip: text;
+        background-clip: text;
         color: transparent;
       }
     }
