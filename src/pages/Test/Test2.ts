@@ -36,4 +36,10 @@ export function f7() {
         // TS2345: Argument of type '"d"' is not assignable to parameter of type '"a" | "b" | "c"'
         // console.log(getProperty(x, "d"))
     }
+
+    {
+        // @ts-ignore
+        const iAmBeautiful = () => (![] + [])[+[]] + (![] + [])[+!+[]] + ([![]] + [][[]])[+!+[] + [+[]]] + (![] + [])[!+[] + !+[]];
+        console.log(iAmBeautiful())
+    }
 }

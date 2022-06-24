@@ -38,7 +38,7 @@ const Tricks = () => {
             <div>
                 <label>open-quote</label>
                 <div className={styles.quotes}>
-                    <p>Quote marks look different depending on the <b>lang</b> attribute.
+                    <p>This is a <q>quote</q> (&lt;q&gt;quote&lt;/q&gt;). Quote marks look different depending on the <b>lang</b> attribute.
                         <q lang="">lang=&#39;&#39; (empty)</q><span> </span>
                         <q lang="en">lang=&#39;en&#39;</q><span> </span>
                         <q lang="fr">lang=&#39;fr&#39;</q><span> </span>
