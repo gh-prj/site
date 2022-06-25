@@ -1,0 +1,16 @@
+.container {
+  position: absolute;
+  background: rgb(145, 245, 228);
+  padding: 10px;
+  overflow-y: scroll;
+  //   height: 90%;
+  bottom: 40px;
+  top: 50px;
+  right: 10px;
+  left: 110px;
+  div {
+    position: relative;
+    background: rgb(229, 179, 245);
+    overflow-y: scroll;
+  }
+}

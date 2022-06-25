@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Scroll = React.lazy(() => import('../pages/react/Scroll/Scroll'));
 const Redux = React.lazy(() => import('../pages/react/Redux/Redux'));
 const ReduxSaga = React.lazy(() => import('../pages/react/ReduxSaga/ReduxSaga'));
 const Hooks = React.lazy(() => import('../pages/react/TypeScript/Hooks'));
@@ -69,6 +70,7 @@ const MainContentRoutes = () => {
                 <Route path="hooks" element={<Hooks />} />
             </Route>
             <Route path="/site/usetransition" element={<UseTransition />} />
+            <Route path="/site/scroll" element={<Scroll />} />
         </Routes>
     );
 }
