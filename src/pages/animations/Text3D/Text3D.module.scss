@@ -1,0 +1,45 @@
+.container {
+  background-color: #000;
+  color: #fff;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  perspective: 700px;
+  perspective-origin: 50% calc(50% - 150px);
+  .banner {
+    display: flex;
+    padding: 20px;
+    transform-style: preserve-3d;
+    animation: rotate 12s infinite linear;
+    $width: 26px;
+    $height: 95px;
+    $cnt: 36;
+    .panel {
+      position: absolute;
+      transform: translate(-50%, -50%) rotateY(var(--angle)) translateZ(150px);
+      width: $width;
+      height: $height;
+      overflow: hidden;
+      &::before {
+        position: absolute;
+        content: "Be kind whenever possible.";
+        font-size: 80px;
+        width: max-content;
+        left: var(--left);
+        color: hsl(var(--hue), 75%, 75%);
+      }
+    }
+    @for $i from 0 to $cnt {
+      .panel:nth-child(#{$i + 1}) {
+        --left: #{$width * $i * -1};
+        --hue: #{360 / $cnt * $i};
+        --angle: #{350deg / $cnt * $i};
+      }
+    }
+  }
+  @keyframes rotate {
+    to {
+      transform: rotateY(-360deg);
+    }
+  }
+}
