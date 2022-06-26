@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { f7 } from './Test2'
+import styles from './Test.module.scss'
 
 type Tp = string | number;
 type Tx<T extends Tp> = T;
@@ -24,9 +25,10 @@ const Test = () => {
   x   x 
 x       x`
     return (
-        <div>
+        <div className={styles.container}>
             Test
             <div style={{ whiteSpace: 'pre' }}>{msg}</div>
+            {/* <div className={styles.test}></div> */}
         </div>
     );
 }
