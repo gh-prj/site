@@ -1,4 +1,4 @@
-import React, { RefObject, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import useScroll from '../../../hooks/useScroll';
 import styles from './Scroll.module.scss'
 
@@ -15,7 +15,6 @@ const Scroll = () => {
     const parentRef = useRef(null)
     const childRef = useRef(null)
     const onLoad = () => {
-        console.log('callback')
         setCanLoad(false)
         setTimeout(() => {
             setRecords([...records, ...[...Array(40)].map((_, i) => ({ id: records.length + i + 1, text: `Record #${records.length + i + 1}` }))])

@@ -16,13 +16,11 @@ export default function useScroll(
         observer.current = new IntersectionObserver(([target]) => {
             console.log([canLoad, target.isIntersecting])
             if(canLoad && target.isIntersecting) {
-                console.log('calling callback')
                 callback()
             }
         }, options)
         observer.current.observe(childRef.current!)
         return () => {
-            console.log('unobserve', childRef, childRef.current)
             if(childRef.current != null) {
                 observer.current?.unobserve(childRef.current)
             }
