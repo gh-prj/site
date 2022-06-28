@@ -29,7 +29,21 @@ x       x`
             Test
             <div style={{ whiteSpace: 'pre' }}>{msg}</div>
             {/* <div className={styles.test}></div> */}
-        </div>
+            <div className={styles.test2}>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div className={styles.test3}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div className={styles.test4}></div>
+            <div className={`${styles.square} ${styles.mt10} ${styles.red}`}></div>
+        </div >
     );
 }
 

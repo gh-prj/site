@@ -31,16 +31,20 @@
         transition: 0.5s;
       }
       &:hover {
+        $hue: 30;
         background: #33a3ee;
+        background: hsl($hue, 85%, 60%);
         transform: translateX(30px);
         a {
           color: #fff;
         }
         &::before {
           background: #1f5378;
+          background: hsl($hue, 45%, 30%);
         }
         &::after {
           background: #2982b9;
+          background: hsl($hue, 65%, 45%);
         }
       }
     }
