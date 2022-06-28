@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Gallery3D = React.lazy(() => import('../pages/animations/Gallery3D/Gallery3D'));
 const Text3D = React.lazy(() => import('../pages/animations/Text3D/Text3D'));
 const Menu3D = React.lazy(() => import('../pages/animations/Menu3D/Menu3D'));
 const Scroll = React.lazy(() => import('../pages/react/Scroll/Scroll'));
@@ -75,6 +76,7 @@ const MainContentRoutes = () => {
             <Route path="/site/scroll" element={<Scroll />} />
             <Route path="/site/text3d" element={<Text3D />} />
             <Route path="/site/menu3d" element={<Menu3D />} />
+            <Route path="/site/gallery3D" element={<Gallery3D />} />
         </Routes>
     );
 }

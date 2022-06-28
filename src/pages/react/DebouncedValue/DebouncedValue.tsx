@@ -14,7 +14,7 @@ const DebouncedValue = () => {
                 type="text"
                 value={value}
                 onChange={onChange}
-                placeholder="Type here"
+                placeholder="Type something here"
             />
             <p>The result is shown below when the input stays unchanged for 1 second.</p>
             <input

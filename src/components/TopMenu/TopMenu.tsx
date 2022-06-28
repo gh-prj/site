@@ -57,6 +57,7 @@ const TopMenu = () => {
                             <li><Link to="/site/text3d">3D Text</Link></li>
                             <li><Link to="/site/folding">Folding Cube</Link></li>
                             <li><Link to="/site/menu3d">3D Menu</Link></li>
+                            <li><Link to="/site/gallery3D">3D Gallery</Link></li>
                         </ul>
                     </li>
                     <li><Link to="/site/css_tricks">Tricks</Link></li>
