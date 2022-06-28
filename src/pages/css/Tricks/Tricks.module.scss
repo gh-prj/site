@@ -603,6 +603,34 @@
       }
     }
 
+    div.stamp {
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      $clr: hsl(210, 50%, 30%);
+      display: inline-block;
+      padding: 20px;
+      background: $clr;
+      div {
+        position: relative;
+        width: 200px;
+        aspect-ratio: 5/4;
+        background: #fff radial-gradient($clr 0px, $clr 7px, transparent 7px);
+        background-size: 20px 20px;
+        background-position: -10px;
+        &::before {
+          content: "";
+          position: absolute;
+          background: url("1.png");
+          background-size: cover;
+          inset: 15px;
+          box-shadow: 0 0 0 5px #fff;
+        }
+      }
+    }
+
     div.test {
       display: block;
       width: 10px;

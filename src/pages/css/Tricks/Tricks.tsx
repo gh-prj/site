@@ -10,6 +10,12 @@ const Tricks = () => {
     return (
         <div className={styles.container}>
             <div>
+                <label>Postage Stamp</label>
+                <div className={styles.stamp}>
+                    <div></div>
+                </div>
+            </div>
+            <div>
                 <label>columns</label>
                 <div className={styles.columns}>
                     <div>
