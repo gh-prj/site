@@ -631,6 +631,43 @@
       }
     }
 
+    div.zigzag {
+      $hue: 120;
+      $clr1: hsl($hue, 30%, 40%);
+      $clr2: hsl(calc($hue + 180), 100%, 60%);
+      position: relative;
+      background: $clr1;
+      width: 200px;
+      height: 70px;
+      div {
+        position: absolute;
+        inset: 10px 10px;
+        background: $clr2;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 20px;
+          background: linear-gradient(135deg, $clr1 10px, transparent 0%),
+            linear-gradient(-135deg, $clr1 10px, transparent 0%);
+          background-size: 20px;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 20px;
+          background: linear-gradient(45deg, $clr1 10px, transparent 0%),
+            linear-gradient(-45deg, $clr1 10px, transparent 0%);
+          background-size: 20px;
+        }
+      }
+    }
+
     div.test {
       display: block;
       width: 10px;

@@ -42,7 +42,10 @@ x       x`
                 <div></div>
             </div>
             <div className={styles.test4}></div>
-            <div className={`${styles.square} ${styles.mt10} ${styles.red}`}></div>
+            <div className={`${styles.square200} ${styles.mt10} ${styles.red} ${styles.zigzag}`}></div>
+            <div className={styles.test5}>
+                <div></div>
+            </div>
         </div >
     );
 }
