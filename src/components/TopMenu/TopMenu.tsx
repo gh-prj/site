@@ -46,7 +46,6 @@ const TopMenu = () => {
                 <ul>
                     <li className={styles.hasch}>Animations
                         <ul className={styles.vmenu}>
-                            <li><Link to="/site/checkbox">Checkbox</Link></li>
                             <li><Link to="/site/text_typing">Text Typing</Link></li>
                             <li><Link to="/site/creative">Creative</Link></li>
                             <li><Link to="/site/water">Water</Link></li>
@@ -56,9 +55,14 @@ const TopMenu = () => {
                             <li><Link to="/site/tetrahedron">Tetrahedron</Link></li>
                             <li><Link to="/site/text3d">3D Text</Link></li>
                             <li><Link to="/site/folding">Folding Cube</Link></li>
-                            <li><Link to="/site/menu3d">3D Menu</Link></li>
                             <li><Link to="/site/gallery3D">3D Gallery</Link></li>
                             <li><Link to="/site/triangle">Triangle</Link></li>
+                        </ul>
+                    </li>
+                    <li className={styles.hasch}>UI
+                        <ul className={styles.vmenu}>
+                            <li><Link to="/site/checkbox">Checkbox</Link></li>
+                            <li><Link to="/site/menu3d">3D Menu</Link></li>
                             <li><Link to="/site/navbar">Navigation Bar</Link></li>
                         </ul>
                     </li>
