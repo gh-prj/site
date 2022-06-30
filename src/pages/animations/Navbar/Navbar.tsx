@@ -4,12 +4,9 @@ import styles from './Navbar.module.scss'
 
 const Navbar = () => {
     const handleClick = (e: React.MouseEvent<HTMLUListElement>) => {
-        console.log(e.target, e.currentTarget, (e.target as HTMLElement).closest('li')?.getAttribute('data-number'))
         const li = (e.target as HTMLElement).closest('li');
         const number = li?.getAttribute('data-number')
         const current = li?.parentElement?.getElementsByClassName(`${styles.current}`)[0] as HTMLElement
-        console.log([current])
-        // current?.setAttribute('--active', number ?? '0')
         current?.style.setProperty('--active', number ?? '0')
     }
 
