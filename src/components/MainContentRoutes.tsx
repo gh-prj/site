@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 const Checkbox2 = React.lazy(() => import('../pages/css/UI/Checkbox2/Checkbox2'));
-const Navbar = React.lazy(() => import('../pages/animations/Navbar/Navbar'));
-const Triangle = React.lazy(() => import('../pages/animations/Triangle/Triangle'));
+const Navbar = React.lazy(() => import('../pages/css/UI/Navbar/Navbar'));
+const Triangle = React.lazy(() => import('../pages/css/UI/Triangle/Triangle'));
 const Gallery3D = React.lazy(() => import('../pages/animations/Gallery3D/Gallery3D'));
 const Text3D = React.lazy(() => import('../pages/animations/Text3D/Text3D'));
-const Menu3D = React.lazy(() => import('../pages/animations/Menu3D/Menu3D'));
+const Menu3D = React.lazy(() => import('../pages/css/UI/Menu3D/Menu3D'));
 const Scroll = React.lazy(() => import('../pages/react/Scroll/Scroll'));
 const Redux = React.lazy(() => import('../pages/react/Redux/Redux'));
 const ReduxSaga = React.lazy(() => import('../pages/react/ReduxSaga/ReduxSaga'));
@@ -24,7 +24,7 @@ const FoldingCube = React.lazy(() => import('../pages/animations/FoldingCube/Fol
 const Cube3D = React.lazy(() => import('../pages/animations/Cube3D/Cube3D'));
 const Tetrahedron = React.lazy(() => import('../pages/animations/Tetrahedron/Tetrahedron'));
 const Cubes = React.lazy(() => import('../pages/animations/Cubes/Cubes'));
-const Checkbox = React.lazy(() => import('../pages/animations/Checkbox/Checkbox'));
+const Checkbox = React.lazy(() => import('../pages/css/UI/Checkbox/Checkbox'));
 const TextTyping = React.lazy(() => import('../pages/animations/TextTyping/TextTyping'));
 const UseReducer = React.lazy(() => import('../pages/react/hooks/useReducer/UseReducer'));
 const UseMemo = React.lazy(() => import('../pages/react/hooks/useMemo/UseMemo'));
