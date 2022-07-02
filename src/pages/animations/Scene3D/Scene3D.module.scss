@@ -1,0 +1,129 @@
+.container {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: rgb(230, 236, 236);
+  --hor: -500px;
+  --ver: -100px;
+  .camera {
+    // background: #dd0;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 1px dotted #d00;
+    perspective: 3500px;
+    perspective-origin: 20px 250px;
+    perspective-origin: var(--hor) var(--ver);
+    transition: 0.5s;
+    .scene {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      // border: 1px dotted #00d;
+      background: #0002;
+      transform: rotateX(70deg) rotateZ(-20deg);
+      transform: rotateX(90deg) rotateZ(0deg);
+      transform-style: preserve-3d;
+      .box {
+        position: absolute;
+        transform-style: preserve-3d;
+        --len: 50px;
+        width: var(--len);
+        height: var(--len);
+        div {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          background: inherit;
+          border: 1px solid #777;
+          &:nth-child(1) {
+            transform-origin: top;
+            transform: rotateX(90deg);
+          }
+          &:nth-child(2) {
+            transform-origin: left;
+            transform: rotateY(-90deg);
+          }
+          &:nth-child(3) {
+            transform-origin: right;
+            transform: rotateY(90deg);
+          }
+          &:nth-child(4) {
+            transform-origin: bottom;
+            transform: rotateX(-90deg);
+          }
+          &:nth-child(5) {
+            transform: translateZ(var(--len));
+          }
+        }
+      }
+      --opacity: 0.7;
+      .box:nth-child(1) {
+        top: 10px;
+        left: 70px;
+        background: hsla(0, 100%, 43%, var(--opacity));
+      }
+      .box:nth-child(2) {
+        top: 200px;
+        left: 30px;
+        background: hsla(240, 100%, 43%, var(--opacity));
+      }
+      .box:nth-child(3) {
+        top: 70px;
+        left: 190px;
+        background: hsla(120, 100%, 43%, var(--opacity));
+      }
+      .box:nth-child(4) {
+        top: 130px;
+        left: 130px;
+        background: hsla(60, 100%, 43%, var(--opacity));
+      }
+      .box:nth-child(5) {
+        top: 200px;
+        left: 180px;
+        background: hsla(300, 100%, 43%, var(--opacity));
+      }
+      .box {
+        --opacity: 1;
+      }
+    }
+  }
+  .cell {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    top: calc(10% * var(--positionY));
+    left: calc(10% * var(--positionX));
+    z-index: 2;
+    // border: 1px dotted black;
+    &:hover ~ .camera {
+      --hor: calc((-1800 + 330 * var(--positionX)) * 1px);
+    }
+  }
+
+  @for $i from 0 to 10 {
+    .cell:nth-child(10n + #{$i + 1}) {
+      --positionX: #{$i};
+    }
+    .cell:nth-child(n + #{10 * $i + 1}):nth-child(-n + #{10 * ($i + 1)}) {
+      --positionY: #{$i};
+    }
+    .cell:nth-child(10n + #{$i + 1}):hover ~ .camera {
+      --hor: calc((-1000 + 280 * #{$i}) * 1px);
+    }
+    .cell:nth-child(n + #{10 * $i + 1}):nth-child(-n + #{10 * ($i + 1)}):hover
+      ~ .camera {
+      --ver: calc((-1200 + 130 * #{$i}) * 1px);
+    }
+  }
+}

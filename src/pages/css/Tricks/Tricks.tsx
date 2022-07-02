@@ -10,6 +10,12 @@ const Tricks = () => {
     return (
         <div className={styles.container}>
             <div>
+                <label>wavy</label>
+                <div className={styles.wavy}>
+                    <div></div>
+                </div>
+            </div>
+            <div>
                 <label>Zig-Zag Border</label>
                 <div className={styles.zigzag}>
                     <div></div>

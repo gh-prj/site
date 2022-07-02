@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Scene3D = React.lazy(() => import('../pages/animations/Scene3D/Scene3D'));
 const Checkbox2 = React.lazy(() => import('../pages/css/UI/Checkbox2/Checkbox2'));
 const Navbar = React.lazy(() => import('../pages/css/UI/Navbar/Navbar'));
 const Triangle = React.lazy(() => import('../pages/css/UI/Triangle/Triangle'));
@@ -83,6 +84,7 @@ const MainContentRoutes = () => {
             <Route path="/site/triangle" element={<Triangle />} />
             <Route path="/site/navbar" element={<Navbar />} />
             <Route path="/site/checkbox2" element={<Checkbox2 />} />
+            <Route path="/site/scene3D" element={<Scene3D />} />
         </Routes>
     );
 }

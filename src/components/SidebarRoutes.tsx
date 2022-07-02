@@ -9,6 +9,7 @@ const SidebarRoutes = () => {
             <Route path="/site/usereducer" element={<div>useReducer</div>} />
             <Route path="/site/reduxthunk/users" element={<SideMenu active="users" />} />
             <Route path="/site/reduxthunk/todos" element={<SideMenu active="todos" />} />
+            <Route path="/site/scene3D" element={<div>This page does not use JavaScript.</div>} />
         </Routes>
     );
 }

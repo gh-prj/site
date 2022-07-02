@@ -56,6 +56,7 @@ const TopMenu = () => {
                             <li><Link to="/site/text3d">3D Text</Link></li>
                             <li><Link to="/site/folding">Folding Cube</Link></li>
                             <li><Link to="/site/gallery3D">3D Gallery</Link></li>
+                            <li><Link to="/site/scene3D">3D Scene</Link></li>
                         </ul>
                     </li>
                     <li className={styles.hasch}>UI
