@@ -1,0 +1,16 @@
+.counter {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #aaa;
+    .buttons {
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        .btn {
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+        }
+    }
+}

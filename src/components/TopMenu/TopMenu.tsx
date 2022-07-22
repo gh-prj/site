@@ -38,6 +38,12 @@ const TopMenu = () => {
                     <li><Link to="/site/redux">Redux</Link></li>
                     <li><Link to="/site/reduxthunk/users">Redux Thunk</Link></li>
                     <li><Link to="/site/saga">Redux-Saga</Link></li>
+                    <li className={styles.hasch}>MobX
+                        <ul className={styles.vmenu}>
+                            <li><Link to="/site/mobx/observable">Core</Link></li>
+                            <li><Link to="/site/mobx/store">Store</Link></li>
+                        </ul>
+                    </li>
                     <li><Link to="/site/ts/props">TypeScript</Link></li>
                 </ul>
             </li>

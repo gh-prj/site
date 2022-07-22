@@ -1,0 +1,17 @@
+.todos {
+    border: 1px solid #aaa;
+    margin: 5px;
+    padding: 5px;
+    max-width: 315px;
+    .todo {
+        display: flex;
+        border: 1px solid #aaa;
+        border-radius: 8px;
+        margin: 5px 0;
+        padding: 5px;
+        max-width: 300px;
+        button {
+            margin-left: auto;
+        }
+    }
+}

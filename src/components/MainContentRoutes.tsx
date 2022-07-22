@@ -1,5 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+const Store = React.lazy(() => import('../pages/react/MobX/Store/Store'));
+const Reactions = React.lazy(() => import('../pages/react/MobX/Reactions/Reactions'));
+const Computeds = React.lazy(() => import('../pages/react/MobX/Computeds/Computeds'));
+const Actions = React.lazy(() => import('../pages/react/MobX/Actions/Actions'));
+const Observable = React.lazy(() => import('../pages/react/MobX/Observable/Observable'));
+const MobX = React.lazy(() => import('../pages/react/MobX/MobX'));
 const Parallax = React.lazy(() => import('../pages/animations/Parallax/Parallax'));
 const Scene3D = React.lazy(() => import('../pages/animations/Scene3D/Scene3D'));
 const Checkbox2 = React.lazy(() => import('../pages/css/UI/Checkbox2/Checkbox2'));
@@ -72,6 +78,13 @@ const MainContentRoutes = () => {
                 <Route path="todos" element={<TodoList />} />
             </Route>
             <Route path="/site/saga" element={<ReduxSaga />} />
+            <Route path="/site/mobx/store" element={<Store />} />
+            <Route path="/site/mobx/" element={<MobX />}>
+                <Route path="observable" element={<Observable />} />
+                <Route path="actions" element={<Actions />} />
+                <Route path="computeds" element={<Computeds />} />
+                <Route path="reactions" element={<Reactions />} />
+            </Route>
             <Route path="/site/ts/" element={<TypeScript />}>
                 <Route path="props" element={<Props />} />
                 <Route path="events" element={<Events />} />

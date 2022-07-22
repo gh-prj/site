@@ -63,6 +63,7 @@ const MyInput = (props: React.HTMLProps<HTMLInputElement>) => {
                 placeholder="MyInput"
                 onChange={onChange}
                 onKeyUp={onKeyUp}
+                onClick={onClick}
             />
             <span> {value1} </span>
             <span> {value2} </span>
