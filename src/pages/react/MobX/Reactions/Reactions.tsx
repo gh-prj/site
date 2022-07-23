@@ -1,7 +1,6 @@
 import { observer, useLocalObservable } from 'mobx-react';
-import { action, autorun, IReactionPublic, reaction, when } from 'mobx';
-import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { useForceUpdate } from '../../../../hooks/useForceUpdate';
+import { autorun, IReactionPublic, reaction, when } from 'mobx';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Reactions.module.scss'
 import { Store } from './store/store';
 
@@ -12,7 +11,8 @@ const Reactions = observer(() => {
     const refValue4 = useRef<HTMLSpanElement>(null)
     const refValue5 = useRef<HTMLSpanElement>(null)
     const refValue6 = useRef<HTMLSpanElement>(null)
-    const refValue7 = useRef<HTMLSpanElement>(null)
+    const refMsg3 = useRef<HTMLSpanElement>(null)
+    const refValue8 = useRef<HTMLSpanElement>(null)
     const refBtn = useRef<HTMLButtonElement>(null)
     const refMsg = useRef<HTMLSpanElement>(null)
     const refMsg2 = useRef<HTMLSpanElement>(null)
@@ -22,6 +22,7 @@ const Reactions = observer(() => {
     const [store4] = useState(new Store());
     const [store5] = useState(new Store());
     const [store6] = useState(new Store());
+    const [store7] = useState(new Store());
     const timer = useLocalObservable(() => ({
         isClicked: false,
         value: 0,
@@ -64,17 +65,17 @@ const Reactions = observer(() => {
 
     // when + timeout
     const startTimer = () => {
-        refValue7.current!.textContent = "<- Click to stop the timer"
+        refMsg3.current!.textContent = "<- Click to stop the timer"
         when(
             () => timer.isClicked,
             () => {
-                refValue7.current!.textContent = "Timer stopped"
+                refMsg3.current!.textContent = "Timer stopped"
             },
             {
                 timeout: 5000,
                 onError: (error) => {
                     console.log(error)
-                    refValue7.current!.textContent = "Time out"
+                    refMsg3.current!.textContent = "Time out"
                 }
             }
         )
@@ -182,6 +183,22 @@ const Reactions = observer(() => {
         };
     }, []);
 
+    // autorun + scheduler
+    useEffect(() => {
+        const colors = ['#f00', '#0a0', '#55f']
+        const dispose = autorun(
+            () => { refValue8.current!.textContent = store7.value.toString() },
+            {
+                scheduler: fn => {
+                    fn()
+                    refValue8.current!.style.color = colors[~~(store7.value / 3) % 3]
+                }
+            }
+        )
+        return () => {
+            dispose()
+        };
+    }, []);
 
     return (
         <div className={styles.container}>
@@ -379,7 +396,7 @@ const Reactions = observer(() => {
                 <summary>when + timeout</summary>
                 <pre className={styles.pre8}><code>{`const Cmpnnt = observer(() => {
     const refBtn = useRef<HTMLButtonElement>(null)
-    const refValue = useRef<HTMLSpanElement>(null)
+    const refMsg = useRef<HTMLSpanElement>(null)
     const timer = useLocalObservable(() => ({
         isClicked: false,
         value: 0,
@@ -417,16 +434,16 @@ const Reactions = observer(() => {
         };
     }, []);
     const startTimer = () => {
-        refValue.current!.textContent = "<- Click to stop the timer"
+        refMsg.current!.textContent = "<- Click to stop the timer"
         when(
             () => timer.isClicked,
             () => {
-                refValue.current!.textContent = "Timer stopped"
+                refMsg.current!.textContent = "Timer stopped"
             },
             {
                 timeout: 5000,
                 onError: (error) => {
-                    refValue.current!.textContent = "Time out"
+                    refMsg.current!.textContent = "Time out"
                 }
             }
         )
@@ -445,7 +462,7 @@ const Reactions = observer(() => {
                 onClick={timer.stop}
                 disabled={!timer.isRunning}
             >{timer.value} sec</button>
-            <span ref={refValue}></span>
+            <span ref={refMsg}></span>
         </div>
     );
 })`}</code></pre>
@@ -463,7 +480,37 @@ const Reactions = observer(() => {
                     disabled={!timer.isRunning}
                     className={styles.btn8}
                 >{timer.value} sec</button>
-                <span ref={refValue7}></span>
+                <span ref={refMsg3}></span>
+            </details>
+            <details>
+                <summary>autorun + scheduler</summary>
+                <pre className={styles.pre9}><code>{`const Cmpnnt = observer(() => {
+    const refValue = useRef<HTMLSpanElement>(null)
+    const [store] = useState(new Store());
+    useEffect(() => {
+        const colors = ['red', 'green', 'blue']
+        const dispose = autorun(
+            () => { refValue.current!.textContent = store.value.toString() },
+            {
+                scheduler: fn => {
+                    fn()
+                    refValue.current!.style.color = colors[~~(store.value / 3) % 3]
+                }
+            }
+        )
+        return () => {
+            dispose()
+        };
+    }, []);
+    return (
+        <div>
+            <button onClick={store.increment}>+1</button>
+            <span ref={refValue}></span>
+        </div>
+    );
+})`}</code></pre>
+                <button onClick={() => store7.increment()} className={styles.btn9} >+1</button>
+                <span ref={refValue8} style={{ fontWeight: 'bold', fontSize: 24 }}></span>
             </details>
         </div>
     );

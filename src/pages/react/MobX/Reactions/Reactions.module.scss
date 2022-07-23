@@ -1,10 +1,13 @@
 .container {
-    // background: green;
     margin: 5px;
     button {
         min-width: 50px;
         margin: 0px 10px 0 0px;
         border-radius: 4px;
+        cursor: pointer;
+        &:disabled {
+            cursor: not-allowed;
+        }
         &.btn2{
             background-color: #b8f7bb;
         }
@@ -25,6 +28,9 @@
         }
         &.btn8{
             background-color: #fdd8ad;
+        }
+        &.btn9{
+            background-color: #e0e0fd;
         }
     }
     pre {
@@ -56,20 +62,23 @@
         &.pre8 {
             background: #fdd8ad;
         }
+        &.pre9 {
+            background: #e0e0fd;
+        }
     }
-    // summary, details {
-    //     transition: .5s;
-    // }
-    // details[open] summary ~ * {
-    //     animation: sweep .5s ease-in-out;
-    // }
-summary {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    color: rgb(95, 95, 3);
-}
-    // @keyframes sweep {
-    //     0%    {opacity: 0; margin-left: -10px}
-    //     100%  {opacity: 1; margin-left: 0px}
-    // }
+    summary {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        color: rgb(95, 95, 3);
+    }
+    summary, details {
+        transition: .5s;
+    }
+    details[open] summary ~ * {
+        animation: sweep .5s ease-in-out;
+    }
+    @keyframes sweep {
+        0%    {opacity: 0; margin-left: -10px}
+        100%  {opacity: 1; margin-left: 0px}
+    }
 }
