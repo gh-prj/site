@@ -123,7 +123,7 @@ const Computeds = observer(() => {
                 <option value="4.4">4.4</option>
                 <option value="4.8">4.8</option>
             </select>
-            <span ref={refUsage} className={styles.usage}></span>
+            <span ref={refUsage} className={styles.usage}>10.00%</span>
             <div className={styles.chart}>
                 <div ref={refBlank} className={styles.blank}>
                     <div ref={refProduct} className={styles.product}></div>
