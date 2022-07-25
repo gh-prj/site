@@ -1,5 +1,5 @@
 import { observer, useLocalObservable } from 'mobx-react';
-import { autorun, IReactionPublic, reaction, when } from 'mobx';
+import { action, autorun, IReactionPublic, reaction, when } from 'mobx';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Reactions.module.scss'
 import { Store } from './store/store';
@@ -13,6 +13,8 @@ const Reactions = observer(() => {
     const refValue6 = useRef<HTMLSpanElement>(null)
     const refMsg3 = useRef<HTMLSpanElement>(null)
     const refValue8 = useRef<HTMLSpanElement>(null)
+    const refValue9 = useRef<HTMLSpanElement>(null)
+    const refValue10 = useRef<HTMLSpanElement>(null)
     const refBtn = useRef<HTMLButtonElement>(null)
     const refMsg = useRef<HTMLSpanElement>(null)
     const refMsg2 = useRef<HTMLSpanElement>(null)
@@ -187,16 +189,53 @@ const Reactions = observer(() => {
     useEffect(() => {
         const colors = ['#f00', '#0a0', '#55f']
         const dispose = autorun(
-            () => { refValue8.current!.textContent = store7.value.toString() },
+            () => {
+                refValue8.current!.textContent = store7.value.toString();
+            },
             {
                 scheduler: fn => {
+                    if (store7.value !== 6) {
+                        fn()
+                        refValue8.current!.style.color = colors[~~(store7.value / 3) % 3]
+                    }
+                }
+            }
+        )
+        let skip = false
+        const dispose2 = autorun(
+            () => {
+                const val = store7.value.toString()
+                if (!skip) {
+                    refValue9.current!.textContent = val;
+                    refValue9.current!.style.color = colors[~~(store7.value / 3) % 3]
+                }
+            },
+            {
+                scheduler: fn => {
+                    skip = store7.value === 6
                     fn()
-                    refValue8.current!.style.color = colors[~~(store7.value / 3) % 3]
+                }
+            }
+        )
+        const dispose3 = autorun(
+            () => {
+                refValue10.current!.textContent = store7.value.toString();
+            },
+            {
+                scheduler: fn => {
+                    setTimeout(() => {
+                        fn()
+                        refValue10.current!.style.color = colors[~~(store7.value / 3) % 3]
+                    }, 500)
                 }
             }
         )
         return () => {
+            console.log('scheduler: disposing...')
             dispose()
+            dispose2()
+            dispose3()
+            console.log('scheduler: disposed')
         };
     }, []);
 
@@ -490,27 +529,68 @@ const Reactions = observer(() => {
     useEffect(() => {
         const colors = ['red', 'green', 'blue']
         const dispose = autorun(
-            () => { refValue.current!.textContent = store.value.toString() },
+            () => {
+                refValue.current!.textContent = store.value.toString();
+            },
             {
                 scheduler: fn => {
+                    if (store.value !== 6) { 
+                        fn() 
+                        refValue.current!.style.color = colors[~~(store.value / 3) % 3]
+                    }
+                }
+            }
+        )
+        let skip = false
+        const dispose2 = autorun(
+            () => {
+                const val = store.value.toString()
+                if (!skip) {
+                    refValue2.current!.textContent = val;
+                    refValue2.current!.style.color = colors[~~(store.value / 3) % 3]
+                }
+            },
+            {
+                scheduler: fn => {
+                    skip = store.value === 6
                     fn()
-                    refValue.current!.style.color = colors[~~(store.value / 3) % 3]
+                }
+            }
+        )
+        const dispose3 = autorun(
+            () => {
+                refValue3.current!.textContent = store.value.toString();
+            },
+            {
+                scheduler: fn => {
+                    setTimeout(() => {
+                        fn()
+                        refValue3.current!.style.color = colors[~~(store.value / 3) % 3]
+                    }, 500)
                 }
             }
         )
         return () => {
             dispose()
+            dispose2()
+            dispose3()
         };
     }, []);
     return (
         <div>
+            <button onClick={action(() => store.value = 0)} className={styles.btn9} >Reset</button>
             <button onClick={store.increment}>+1</button>
             <span ref={refValue}></span>
+            <span ref={refValue2}></span>
+            <span ref={refValue3}></span>
         </div>
     );
 })`}</code></pre>
+                <button onClick={action(() => store7.value = 0)} className={styles.btn9} >Reset</button>
                 <button onClick={() => store7.increment()} className={styles.btn9} >+1</button>
-                <span ref={refValue8} style={{ fontWeight: 'bold', fontSize: 24 }}></span>
+                <span ref={refValue8} className={styles.sched}></span>
+                <span ref={refValue9} className={styles.sched}></span>
+                <span ref={refValue10} className={styles.sched}></span>
             </details>
         </div>
     );
