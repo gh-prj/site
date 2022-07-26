@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/4080.45af54a4.chunk.css","mappings":"AACE,uCACE,+CAEF,uCACE","sources":["pages/react/DebouncedCallback/DebouncedCallback.module.scss"],"sourcesContent":[".container {\n  ul {\n    padding-inline-start: 0;\n  }\n  li {\n    list-style-type: none;\n  }\n}\n"],"names":[],"sourceRoot":""}

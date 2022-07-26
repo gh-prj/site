@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/712.77c71e17.chunk.js","mappings":"6IAUA,UARgB,WACZ,OACI","sources":["pages/PageOne/PageOne.tsx"],"sourcesContent":["import React from 'react';\n\nconst PageOne = () => {\n    return (\n        <div>\n            Page #1\n        </div>\n    );\n}\n\nexport default PageOne;\n"],"names":[],"sourceRoot":""}

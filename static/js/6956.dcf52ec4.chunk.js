@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgh_react_site=self.webpackChunkgh_react_site||[]).push([[6956],{6956:function(e,t,r){r.r(t),r.d(t,{default:function(){return s}});r(2791);var n="Store_container__S0Brw",c=r(184),s=function(){return(0,c.jsx)("div",{className:n,children:"Store"})}}}]);
+//# sourceMappingURL=6956.dcf52ec4.chunk.js.map

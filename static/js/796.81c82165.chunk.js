@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgh_react_site=self.webpackChunkgh_react_site||[]).push([[796],{796:function(e,r,n){n.r(r),n.d(r,{default:function(){return s}});n(791);var t="Water_container__YMMvy",c=n(184),s=function(){return(0,c.jsx)("div",{className:t,children:(0,c.jsxs)("div",{children:[(0,c.jsx)("h2",{children:"Water"}),(0,c.jsx)("h2",{children:"Water"})]})})}}}]);
-//# sourceMappingURL=796.81c82165.chunk.js.map

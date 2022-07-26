@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgh_react_site=self.webpackChunkgh_react_site||[]).push([[3735],{3735:function(e,t,r){r.r(t),r.d(t,{default:function(){return i}});r(2791);var a="Creative_container__4+9bg",n=r(184),i=function(){return(0,n.jsx)("div",{className:a,children:(0,n.jsx)("h2",{"data-text":"Creative...",children:"Creative..."})})}}}]);
+//# sourceMappingURL=3735.e00916a7.chunk.js.map
