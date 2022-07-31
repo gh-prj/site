@@ -27,8 +27,12 @@ x       x`
     return (
         <div className={styles.container}>
             Test
+            {/* <div style={{ whiteSpace: 'pre', display: 'inline-block' }}>{msg}</div> */}
             <div style={{ whiteSpace: 'pre' }}>{msg}</div>
-            {/* <div className={styles.test}></div> */}
+            <div className={styles.test}></div>
+            <div className={styles.test5}>
+                <div></div>
+            </div>
             <div className={styles.test2}>
                 <div></div>
                 <div></div>
@@ -43,9 +47,7 @@ x       x`
             </div>
             <div className={styles.test4}></div>
             <div className={`${styles.square200} ${styles.mt10} ${styles.red} ${styles.zigzag}`}></div>
-            <div className={styles.test5}>
-                <div></div>
-            </div>
+
         </div >
     );
 }

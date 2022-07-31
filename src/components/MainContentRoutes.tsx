@@ -1,11 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import TestErrorBoundary from './TestErrorBoundary';
+const Home = React.lazy(() => import('../pages/Home'));
 const Store = React.lazy(() => import('../pages/react/MobX/Store/Store'));
-const Reactions = React.lazy(() => import('../pages/react/MobX/Reactions/Reactions'));
-const Computeds = React.lazy(() => import('../pages/react/MobX/Computeds/Computeds'));
-const Actions = React.lazy(() => import('../pages/react/MobX/Actions/Actions'));
-const Observable = React.lazy(() => import('../pages/react/MobX/Observable/Observable'));
-const MobX = React.lazy(() => import('../pages/react/MobX/MobX'));
+const Reactions = React.lazy(() => import('../pages/react/MobX/Reactions'));
+const Computeds = React.lazy(() => import('../pages/react/MobX/Computeds'));
+const Actions = React.lazy(() => import('../pages/react/MobX/Actions'));
+const Observable = React.lazy(() => import('../pages/react/MobX/Observable'));
+const MobX = React.lazy(() => import('../pages/react/MobX'));
 const Parallax = React.lazy(() => import('../pages/animations/Parallax/Parallax'));
 const Scene3D = React.lazy(() => import('../pages/animations/Scene3D/Scene3D'));
 const Checkbox2 = React.lazy(() => import('../pages/css/UI/Checkbox2/Checkbox2'));
@@ -50,10 +52,10 @@ const Test = React.lazy(() => import('../pages/Test/Test'))
 const MainContentRoutes = () => {
     return (
         <Routes>
-            <Route path="/site" element={<div>Home</div>} />
+            <Route path="/site" element={<Home />} />
             <Route path="/site/usestate" element={<UseState />} />
             <Route path="/site/usecallback" element={<UseCallback />} />
-            <Route path="/site/test" element={<Test />} />
+            <Route path="/site/test" element={<TestErrorBoundary><Test /></TestErrorBoundary>} />
             <Route path="/site/useref" element={<UseRef />} />
             <Route path="/site/usememo" element={<UseMemo />} />
             <Route path="/site/useeffect" element={<UseEffect />} />

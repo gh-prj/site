@@ -6,6 +6,7 @@ import TopMenu from '../TopMenu/TopMenu';
 import MainContentRoutes from '../MainContentRoutes';
 import styles from './Layout.module.scss'
 import Loading from '../Loading/Loading';
+import TestErrorBoundary from '../TestErrorBoundary';
 
 const Layout = () => {
     return (
@@ -18,9 +19,10 @@ const Layout = () => {
                     <SidebarRoutes />
                 </div>
                 <main className={styles.content}>
-                    {/* <Loading /> */}
                     <Suspense fallback={<Loading />}>
-                        <MainContentRoutes />
+                        <TestErrorBoundary>
+                            <MainContentRoutes />
+                        </TestErrorBoundary>
                     </Suspense>
                 </main>
                 <footer className={styles.footer}>footer</footer>

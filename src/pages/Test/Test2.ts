@@ -70,4 +70,13 @@ export function f7() {
         // console.log([...set])
         console.log([[1, 2, 5], [3, 4]].flat())
     }
+
+    {
+        const obj = {
+            id: 1,
+            name: "John"
+        }
+        console.log({ ...obj })
+        // throw new Error('err msg')
+    }
 }
