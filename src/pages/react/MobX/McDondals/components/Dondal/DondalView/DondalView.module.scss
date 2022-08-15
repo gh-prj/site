@@ -1,0 +1,38 @@
+.dondals {
+    .logo {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 5px;
+        background: #f00;
+    } 
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 16px;
+    }
+    & > span {
+        position: relative;
+        display: inline-block;
+        &.remove::before {
+            content: '\f2ed';
+            font-family: fontAwesome;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        &:hover::after {
+            content: 'Remove';
+            position: absolute;
+            background: rgb(247, 186, 95);
+            top: -20px;
+            left: 10px;
+            padding: 0px 5px;
+            border-radius: 2px;
+            animation: show 0.5s linear forwards;
+        }
+        &.disabled {
+            color: #ccc;
+            pointer-events: none;
+        }
+    }
+}

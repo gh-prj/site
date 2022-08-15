@@ -1,8 +1,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+// import TestContextConsumerWrapped from '../pages/Context/TestContextConsumerWrapped';
+const TestContextConsumerWrapped = React.lazy(() => import('../pages/Context/TestContextConsumerWrapped'));
+// import TestContextConsumer from '../pages/Context/TestContextConsumer';
+// const TestContextConsumer = React.lazy(() => import('../pages/Context/TestContextConsumer'));
+// const TestContextProvider = React.lazy(() => import('../pages/Context/TestContext'));
+// import TestContextProvider from '../pages/Context/TestContext';
+// import { RootStoreProvider } from '../pages/react/MobX/McDondals/RootStoreContext';
 import TestErrorBoundary from './TestErrorBoundary';
 const Home = React.lazy(() => import('../pages/Home'));
-const Store = React.lazy(() => import('../pages/react/MobX/Store/Store'));
+// import McDondals from '../pages/react/MobX/McDondals/McDondalsWrapped';
+const McDondals = React.lazy(() => import('../pages/react/MobX/McDondals/McDondalsWrapped'));
 const Reactions = React.lazy(() => import('../pages/react/MobX/Reactions'));
 const Computeds = React.lazy(() => import('../pages/react/MobX/Computeds'));
 const Actions = React.lazy(() => import('../pages/react/MobX/Actions'));
@@ -53,6 +61,8 @@ const MainContentRoutes = () => {
     return (
         <Routes>
             <Route path="/site" element={<Home />} />
+            <Route path="/site/testcontext" element={<TestContextConsumerWrapped />} />
+            {/* <Route path="/site/testcontext" element={<TestContextProvider><TestContextConsumer /></TestContextProvider>} /> */}
             <Route path="/site/usestate" element={<UseState />} />
             <Route path="/site/usecallback" element={<UseCallback />} />
             <Route path="/site/test" element={<TestErrorBoundary><Test /></TestErrorBoundary>} />
@@ -80,7 +90,8 @@ const MainContentRoutes = () => {
                 <Route path="todos" element={<TodoList />} />
             </Route>
             <Route path="/site/saga" element={<ReduxSaga />} />
-            <Route path="/site/mobx/store" element={<Store />} />
+            <Route path="/site/mobx/dondals" element={<McDondals />} />
+            {/* <Route path="/site/mobx/dondals" element={<RootStoreProvider><McDondals /></RootStoreProvider>} /> */}
             <Route path="/site/mobx/" element={<MobX />}>
                 <Route path="observable" element={<Observable />} />
                 <Route path="actions" element={<Actions />} />

@@ -1,0 +1,38 @@
+.dondalsMain {
+    position: relative;
+    & > select {
+        margin-bottom: 5px;
+    }
+    img.restore {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        top: 3px;
+        margin-left: 5px;
+    }
+    span.restore {
+        position: relative;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        top: 3px;
+        left: -16px;
+        background: transparent;
+        cursor: pointer;
+    }
+    span.restore:hover::after {
+        content: 'Restore initial sample data';
+        white-space: nowrap;
+        position: absolute;
+        background: rgb(247, 186, 95);
+        top: -1px;
+        left: 20px;
+        padding: 0px 5px;
+        border-radius: 2px;
+        animation: show 0.5s linear forwards;
+    }
+    @keyframes show {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+}

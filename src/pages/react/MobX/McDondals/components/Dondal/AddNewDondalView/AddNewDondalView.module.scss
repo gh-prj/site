@@ -1,0 +1,49 @@
+.newDondal {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    display: inline-block;
+    position: absolute;
+    // border: 1px solid #ccc;
+    line-height: 18px;
+    label {
+        display: inline-block;
+        width: 60px;
+    }
+    & > select {
+        margin-bottom: 1px;
+        min-width: 153px;
+    }
+    input {
+        width: 153px;
+    }
+    & > span {
+        position: relative;
+        display: inline-block;
+        top: 2px;
+        &.disabled {
+            pointer-events: none;
+        }
+        &.add::before {
+            content: '\f0fe';
+            font-family: fontAwesome;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        &:hover::after {
+            content: 'Add';
+            position: absolute;
+            background: rgb(247, 186, 95);
+            top: -20px;
+            left: 10px;
+            padding: 0px 5px;
+            border-radius: 2px;
+            animation: show 0.5s linear forwards;
+        }
+        &.disabled::before {
+            color: #ccc;
+        }
+    }
+}

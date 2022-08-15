@@ -1,0 +1,15 @@
+.dondaldLogo {
+    display: inline-block;
+    .logo {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 5px;
+        background: #f00;
+    } 
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 16px;
+    }
+}

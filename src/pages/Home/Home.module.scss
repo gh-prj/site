@@ -7,19 +7,19 @@
     position: relative;
     height: 100%;
     div:nth-child(5) {
-        animation: fade 20s linear 0s infinite;
+        animation: fade 15s linear 0s infinite;
     }
     div:nth-child(4) {
-        animation: fade 20s linear 4s infinite;
+        animation: fade 15s linear 3s infinite;
     }
     div:nth-child(3) {
-        animation: fade 20s linear 8s infinite;
+        animation: fade 15s linear 6s infinite;
     }
     div:nth-child(2) {
-        animation: fade 20s linear 12s infinite;
+        animation: fade 15s linear 9s infinite;
     }
     div:nth-child(1) {
-        animation: fade 20s linear 16s infinite;
+        animation: fade 15s linear 12s infinite;
     }
     @keyframes fade {
         0%,15% {opacity: 1;}

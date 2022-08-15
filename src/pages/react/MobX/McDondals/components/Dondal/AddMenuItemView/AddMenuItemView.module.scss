@@ -1,0 +1,46 @@
+.addItem {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    padding: 1px;
+    input:nth-of-type(1) {
+        width: 236px;
+        margin-right: 5px;
+    }
+    input:nth-of-type(2) {
+        width: 60px;
+        margin-right: 5px;
+    }
+    span {
+        position: relative;
+        &.disabled {
+            pointer-events: none;
+        }
+    }
+    span::before {
+        content: '\f0fe';
+        font-family: fontAwesome;
+    }
+    span:hover::after {
+        content: 'Add';
+        position: absolute;
+        background: rgb(247, 186, 95);
+        top: -20px;
+        left: 10px;
+        padding: 0px 5px;
+        border-radius: 2px;
+        animation: show 0.5s linear forwards;
+    }
+    span.disabled::before {
+        color: #ccc;
+    }
+    @keyframes show {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+}
