@@ -1,3 +1,11 @@
 .newClient  {
-    border: 1px solid #ccc;
+    position: absolute;
+    top: 6px;
+    top: 26px;
+    &.hidden {
+        display: none;
+    }
+    input {
+        margin-right: 1px;
+    }
 }

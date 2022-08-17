@@ -65,11 +65,11 @@ const McDondals = observer(() => {
             <ExchangeView rates={store.exchangeStore.rates} />
             <hr />
             <button onClick={store.clientStore.reset}>Reset</button>
-            <button onClick={store.clientStore.add}>Add</button>
+            {/* <button onClick={store.clientStore.addClient}>Add</button> */}
             {/* <button onClick={store.clientStore.load}>Load</button> */}
-            {store.clientStore.clients.map(client =>
+            {/* {store.clientStore.clients.map(client =>
                 <div key={client.id}>{client.name}</div>
-            )}
+            )} */}
             <hr />
             <button onClick={store.orderStore.reset}>Reset</button>
             <button onClick={addOrderItem}>Add</button>
@@ -81,10 +81,10 @@ const McDondals = observer(() => {
                     )}
                 </ul>
             )} */}
-            <hr />
+            {/* <hr />
             {store.orderStore.orders.map(order =>
                 <OrderView order={order} key={order.id} />
-            )}
+            )} */}
         </div>
     );
 })

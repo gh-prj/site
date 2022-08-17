@@ -1,10 +1,11 @@
 import { observer } from 'mobx-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRootStore } from '../../../RootStoreContext';
 import AddNewDondalView from '../AddNewDondalView/AddNewDondalView';
 import DondalView from '../DondalView/DondalView';
 import restore from './restore.png'
 import styles from './DondalsMainView.module.scss'
+import { runInAction } from 'mobx';
 
 interface Props {
     id: number
@@ -13,6 +14,12 @@ interface Props {
 const DondalsMainView = observer(() => {
     const [dondalId, setDondalId] = useState(1);
     const store = useRootStore().dondalsStore
+    useEffect(() => {
+        console.log('useEffect. dondalId=' + dondalId)
+        runInAction(() => {
+            store.rootStore.uiStore.selectedDondalId = dondalId
+        })
+    }, [dondalId]);
     const addDondal = () => {
         store.addRandomDondal()
         setDondalId(Math.max(...store.dondals.map(dondal => dondal.id)))

@@ -4,6 +4,8 @@ export type CountryCode =
     | 'EU'
     | 'GB'
     | 'JP'
+    | 'TH'
+    | 'IN'
 
 export type CurrencyCode =
     | 'RUB'
@@ -11,23 +13,36 @@ export type CurrencyCode =
     | 'EUR'
     | 'GBP'
     | 'JPY'
+    | 'THB'
+    | 'INR'
 
 export interface Settings {
-    currency: CurrencyCode
-    name: string
+    currencyCode: CurrencyCode
+    currencyName: string
+    currencyMin: number
     locale: string
     country: string
 }
 
 export const RegionalSettings: { [key in CountryCode]: Settings } = {
-    'RU': { currency: 'RUB', name: 'Russian Ruble', locale: 'ru-RU', country: 'Russia' },
-    'US': { currency: 'USD', name: 'US Dollar', locale: 'en-US', country: 'USA' },
-    'EU': { currency: 'EUR', name: 'Euro', locale: 'de-DE', country: 'EU' },
-    'GB': { currency: 'GBP', name: 'British Pound', locale: 'en-GB', country: 'UK' },
-    'JP': { currency: 'JPY', name: 'Japanese Yen', locale: 'ja-JP', country: 'Japan' },
+    'RU': { currencyCode: 'RUB', currencyName: 'Russian Ruble', currencyMin: 0.01, locale: 'ru-RU', country: 'Russia' },
+    'US': { currencyCode: 'USD', currencyName: 'US Dollar', currencyMin: 0.01, locale: 'en-US', country: 'United States' },
+    'EU': { currencyCode: 'EUR', currencyName: 'Euro', currencyMin: 0.01, locale: 'de-DE', country: 'European Union' },
+    'GB': { currencyCode: 'GBP', currencyName: 'British Pound', currencyMin: 0.01, locale: 'en-GB', country: 'United Kingdom' },
+    'JP': { currencyCode: 'JPY', currencyName: 'Japanese Yen', currencyMin: 1, locale: 'ja-JP', country: 'Japan' },
+    'TH': { currencyCode: 'THB', currencyName: 'Thailand Baht', currencyMin: 0.01, locale: 'th-TH', country: 'Thailand' },
+    'IN': { currencyCode: 'INR', currencyName: 'India Rupee', currencyMin: 0.01, locale: 'hi-IN', country: 'India' },
 }
 
-
+export const currencyFormatter = (currencyCode: CurrencyCode) => {
+    const settings = Object.entries(RegionalSettings)
+        .map(entry => entry[1])
+        .find(settings => settings.currencyCode === currencyCode)!
+    console.log('currency: ', currencyCode, 'settings: ', settings)
+    return new Intl.NumberFormat(settings.locale, {
+        style: 'currency', currency: settings.currencyCode
+    })
+}
 
 // // type Keys = typeof RegionalSettings
 // // type Keys2 = keyof Keys

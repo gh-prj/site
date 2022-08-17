@@ -1,4 +1,14 @@
 .order {
+    position: absolute;
+    // display: inline-block;
+    // top: 0px;
+    left: 150px;
     background: rgb(219, 219, 245);
     border: 1px solid black;
+    &.hidden {
+        display: none;
+    }
+    ul {
+        list-style: none;
+    }
 }

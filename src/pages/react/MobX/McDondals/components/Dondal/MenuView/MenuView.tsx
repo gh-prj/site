@@ -16,7 +16,7 @@ const MenuView: FC<Props> = observer(({ dondal }) => {
     const settings = RegionalSettings[dondal.countryCode]
     const currencyFormatter = (amount: number | bigint) =>
         new Intl.NumberFormat(settings.locale, {
-            style: 'currency', currency: settings.currency
+            style: 'currency', currency: settings.currencyCode
         }).format(amount)
     return (
         <>

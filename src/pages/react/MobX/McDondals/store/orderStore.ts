@@ -1,4 +1,5 @@
 import { makeObservable, observable, action, makeAutoObservable, computed } from "mobx"
+import { CurrencyCode } from "../common"
 import { RootStore } from "./rootStore"
 import IStorage from "./storage"
 
@@ -73,49 +74,51 @@ export class OrderItem extends OrderItemDto {
 class OrderDto {
     id: number
     clientId: number
-    currency: string
+    orderCurrencyCode: CurrencyCode
+    paymentCurrencyCode: CurrencyCode
     isPaid: boolean
     isDelivered: boolean
+    paid?: number
     constructor(
         id: number,
         clientId: number,
-        currency: string,
+        orderCurrencyCode: CurrencyCode,
+        paymentCurrencyCode: CurrencyCode,
         isPaid: boolean,
-        isDelivered: boolean
+        isDelivered: boolean,
+        paid?: number
     ) {
         this.id = id
         this.clientId = clientId
-        this.currency = currency
+        this.orderCurrencyCode = orderCurrencyCode
+        this.paymentCurrencyCode = paymentCurrencyCode
         this.isPaid = isPaid
         this.isDelivered = isDelivered
+        this.paid = paid
     }
 }
 
 export class Order extends OrderDto {
     store: OrderStore
-    // id: number
-    // clientId: number
-    // currency: string
-    // isPaid = false
-    // isDelivered = false
     constructor(
         store: OrderStore,
         id: number,
         clientId: number,
-        currency: string,
+        orderCurrencyCode: CurrencyCode,
+        paymentCurrencyCode: CurrencyCode,
         isPaid = false,
-        isDelivered = false
+        isDelivered = false,
+        paid?: number
     ) {
-        super(id, clientId, currency, isPaid, isDelivered)
+        super(id, clientId, orderCurrencyCode, paymentCurrencyCode, isPaid, isDelivered, paid)
         this.store = store
         // this.id = id // generate new id
-        // this.clientId = clientId
-        // this.currency = currency
         makeObservable(this, {
             store: false,
             id: false,
             clientId: false,
-            currency: observable,
+            orderCurrencyCode: false,
+            paymentCurrencyCode: observable,
             isPaid: observable,
             isDelivered: observable,
             items: computed,
@@ -150,8 +153,8 @@ export class Order extends OrderDto {
 }
 
 const initialOrders: OrderDto[] = [
-    new OrderDto(1, 1, 'USD', false, false),
-    new OrderDto(2, 2, 'EUR', false, false),
+    new OrderDto(1, 1, 'USD', 'USD', false, false),
+    new OrderDto(2, 2, 'EUR', 'USD', false, false),
 ]
 
 const initialOrderItems: OrderItemDto[] = [
@@ -163,7 +166,7 @@ export class OrderStore {
     rootStore: RootStore
     orders: Order[] = []
     orderItems: OrderItem[] = []
-    addOrder: (clientId: number, currency: string) => Order
+    addOrder: (clientId: number, orderCurrencyCode: CurrencyCode, paymentCurrencyCode: CurrencyCode) => Order
     addOrderItem: (orderId: number, item: string, price: number, quantity: number) => OrderItem
     reset: () => void
     save: () => void
@@ -174,9 +177,11 @@ export class OrderStore {
             const orderToDto = (order: Order) => ({
                 id: order.id,
                 clientId: order.clientId,
-                currency: order.currency,
+                orderCurrencyCode: order.orderCurrencyCode,
+                paymentCurrencyCode: order.paymentCurrencyCode,
                 isPaid: order.isPaid,
-                isDelivered: order.isDelivered
+                isDelivered: order.isDelivered,
+                paid: order.paid
             })
             const orderItemToDto = (orderItem: OrderItem) => ({
                 id: orderItem.id,
@@ -191,8 +196,8 @@ export class OrderStore {
             console.log(`saved ${this.orderItems.length} orderItem(s)`)
         }
         const orderFromDto = (dto: OrderDto) => new Order(
-            this, dto.id, dto.clientId, dto.currency,
-            dto.isPaid, dto.isDelivered
+            this, dto.id, dto.clientId, dto.orderCurrencyCode,
+            dto.paymentCurrencyCode, dto.isPaid, dto.isDelivered
         )
         const orderItemFromDto = (dto: OrderItemDto) => new OrderItem(
             this, dto.id, dto.orderId, dto.item,
@@ -204,13 +209,19 @@ export class OrderStore {
             console.log('reset orderItems')
             this.orderItems = initialOrderItems.map(orderItemFromDto)
         }
-        this.addOrder = (clientId: number, currency: string) => {
+        this.addOrder = (clientId: number, orderCurrencyCode: CurrencyCode,
+            paymentCurrencyCode: CurrencyCode, isPaid?: boolean,
+            isDelivered?: boolean, paid?: number | undefined) => {
             console.log('adding order...')
             const order = new Order(
                 this,
                 Math.max(...this.orders.map(order => order.id)) + 1,
                 clientId,
-                currency
+                orderCurrencyCode,
+                paymentCurrencyCode,
+                isPaid,
+                isDelivered,
+                paid
             )
             this.orders.push(order)
             return order

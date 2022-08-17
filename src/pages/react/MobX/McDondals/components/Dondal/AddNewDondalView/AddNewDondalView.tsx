@@ -21,7 +21,7 @@ const AddNewDondalView: FC<Props> = ({ setDondalId, ...props }) => {
         <div className={styles.newDondal} {...props}>
             <label>Country:</label>
             <select value={countryCode || ''} onChange={(e) => setCountryCode(e.target.value)}>
-                <option value=''>--- Choose one ---</option>
+                <option value=''>--- Select country ---</option>
                 {Object.entries(RegionalSettings).map(entry =>
                     <option key={entry[0]} value={entry[0]} >{entry[1].country}</option>
                 )}

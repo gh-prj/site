@@ -22,8 +22,8 @@ export class Rate {
         this.currencyCode = currencyCode
         // @ts-ignore
         // this.countryCode = Object.keys(RegionalSettings).find(key => (RegionalSettings[key] as Settings).currency === currencyCode)
-        this.countryCode = Object.entries(RegionalSettings).find(entry => entry[1].currency === currencyCode)![0] as CountryCode
-        this.currencyName = RegionalSettings[this.countryCode].name
+        this.countryCode = Object.entries(RegionalSettings).find(entry => entry[1].currencyCode === currencyCode)![0] as CountryCode
+        this.currencyName = RegionalSettings[this.countryCode].currencyName
         let isDisposing = false
         this.dispose = () => {
             // console.log('disposing ', this.currencyCode)

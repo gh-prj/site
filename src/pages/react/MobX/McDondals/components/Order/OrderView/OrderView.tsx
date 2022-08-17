@@ -9,14 +9,16 @@ interface Props {
 }
 
 const OrderView: FC<Props> = observer(({ order }) => {
+    const isVisible = !order.store.rootStore.uiStore.isCreateNewOrderVisible
     return (
-        <div className={styles.order}>
+        <div className={`${styles.order} ${isVisible ? "" : styles.hidden}`}>
             <ul>
                 {order.items.map(orderItem =>
                     <OrderItemView key={orderItem.id} orderItem={orderItem} />
                 )}
             </ul>
             <span>Total: {order.total}</span>
+            <br /><span style={{ color: 'blue' }}>OrderView</span>
         </div>
     );
 })
