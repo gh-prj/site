@@ -1,6 +1,6 @@
 import { action, runInAction } from 'mobx';
 import { observer } from 'mobx-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { currencyFormatter } from '../../../common';
 import { useRootStore } from '../../../RootStoreContext';
 import { Client } from '../../../store/clientStore';
@@ -9,12 +9,18 @@ import OrderListView from '../../Order/OrderListView/OrderListView';
 import OrderView from '../../Order/OrderView/OrderView';
 import IconButton from '../../UI/IconButton/IconButton';
 import AddNewClientView from '../AddNewClientView/AddNewClientView';
+import PurchasesByCountry from '../PurchasesByCountry/PurchasesByCountry';
 import styles from './ClientsMainView.module.scss'
 
 const ClientsMainView = observer(() => {
     const store = useRootStore().clientStore
     const [clientId, setClientId] = useState(store.clients[0].id);
     const [isVisible, setIsVisible] = useState(false);
+    useEffect(() => {
+        runInAction(() => {
+            store.rootStore.uiStore.selectedClientId = clientId
+        })
+    }, [clientId]);
     const onNewClientAdded = (id: number | null) => {
         setIsVisible(false)
         if (id) {
@@ -33,38 +39,48 @@ const ClientsMainView = observer(() => {
     return (
         <div className={styles.clientsMain} >
             <div className={styles.selector}>
-                <div>
+                <div className={isVisible ? styles.hidden : ""}
+                // style={{ display: 'none' }}
+                >
+                    <IconButton
+                        type="add"
+                        onClick={() => setIsVisible(true)}
+                        disabled={() => false}
+                        style={{ top: 1, marginRight: 5 }}
+                    // style={{ top: 0 }}
+                    >Add new client</IconButton>
                     <select value={clientId} onChange={(e) => setClientId(parseInt(e.target.value))}>
                         {store.clients.map(client =>
                             <option key={client.id} value={client.id}>({client.countryCode}) {client.name}</option>
                         )}
                     </select>
-                    <IconButton
-                        type="add"
-                        onClick={() => setIsVisible(true)}
-                        disabled={() => false}
-                    // style={{ top: 0 }}
-                    >Add new client</IconButton>
                     {/* <span> Balance: {store.clients.find(client => client.id === clientId)!.balance}</span> */}
                     {/* <span> Balance: {getBalance()}</span> */}
-                    <span> {getBalance()}</span>
-                    <IconButton type="cart" disabled={() => !!store.rootStore.uiStore.isCreateNewOrderVisible} onClick={onCreateOrder} />
+                    <span className={styles.balance}> {getBalance()}</span>
+                    <IconButton
+                        type="cart"
+                        disabled={() => !!store.rootStore.uiStore.isCreateNewOrderVisible}
+                        onClick={onCreateOrder}
+                        style={{ marginRight: 2 }}
+                    />
                 </div>
                 {/* <div> */}
                 <AddNewClientView hidden={!isVisible} onClientAdd={id => onNewClientAdded(id)} />
-                {/* </div>s */}
+                {/* </div> */}
             </div>
             <br />
             {store.rootStore.uiStore.isCreateNewOrderVisible &&
-                <CreateNewOrderView onNewOrderCreated={(id) => { console.log(id) }} className={styles.cnov} />
+                <CreateNewOrderView onNewOrderCreated={(id) => { console.log('orderId: ' + id) }} className={styles.cnov} />
             }
             <div className={styles.orders}>
                 <OrderListView clientId={clientId} />
-                <OrderView order={store.rootStore.orderStore.orders[0]} />
+                <OrderView order={store.rootStore.uiStore.selectedOrder} />
+                <div className={styles.purchases}>
+                    <PurchasesByCountry />
+                </div>
             </div>
             {/* <span style={{ scolor: 'blue' }}>ClientsMainView</span> */}
-
-        </div>
+        </div >
     );
 })
 

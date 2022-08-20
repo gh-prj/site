@@ -1,6 +1,6 @@
 .newOrder {
     position: absolute;
-    // top: 0px;
+    // top: 30px;
     left: 150px;
     border: 1px solid #ccc;
     padding: 1px;
@@ -30,11 +30,26 @@
         display: flex;
         align-items: center;
         font-weight: bold;
-        span:nth-of-type(2) {
-            color: rgb(94, 100, 33);
+        span:nth-of-type(1) {
+            // color: rgb(94, 100, 33);
             background: #fff;
             border: 1px solid #888;
             border-radius: 2px;
+        }
+        span:nth-of-type(2) {
+            background: inherit;
+        }
+    }
+    footer {
+        // background: red;
+        display: flex;
+        justify-content: right;
+        align-items:flex-end;
+        height: 35px;
+        // line-height: 100%;
+        button {
+            width:70px;
+            height: 24px;
         }
     }
 }

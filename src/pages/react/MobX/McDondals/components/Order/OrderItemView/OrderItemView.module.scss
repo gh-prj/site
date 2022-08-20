@@ -1,3 +1,13 @@
 .orderitem {
-    color: red;
+    // color: red;
+    font-size: 00.85rem;
+    label {
+        display: inline-block;
+        width: 250px;
+    }
+    span {
+        display: inline-block;
+    }
+    span:nth-of-type(1) { width: 70px;}
+    span:nth-of-type(2) { width: 10px;}
 }

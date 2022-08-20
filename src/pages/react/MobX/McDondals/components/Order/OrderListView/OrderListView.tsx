@@ -1,5 +1,6 @@
+import { action } from 'mobx';
 import { observer } from 'mobx-react';
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { CountryCode, CurrencyCode, RegionalSettings, currencyFormatter } from '../../../common';
 import { useRootStore } from '../../../RootStoreContext';
 import { Order } from '../../../store/orderStore';
@@ -10,20 +11,40 @@ interface Props extends React.ComponentProps<"div"> {
 }
 
 const OrderListView: FC<Props> = observer(({ clientId }) => {
-    const store = useRootStore().orderStore
-    const isVisible = !store.rootStore.uiStore.isCreateNewOrderVisible
+    const orderStore = useRootStore().orderStore
+    const uiStore = orderStore.rootStore.uiStore
+    const isVisible = !uiStore.isCreateNewOrderVisible
+    const refUl = useRef<HTMLUListElement>(null)
+    useEffect(action(() => {
+        {
+            uiStore.selectedOrderId = orderStore.orders
+                .filter(order => order.clientId === clientId)
+                .sort((o1, o2) => o2.id - o1.id)[0]?.id
+        }
+    }), [clientId]);
+    useEffect(() => {
+        refUl.current?.scroll(0, 0)
+    }, [orderStore.orders.filter(order => order.clientId === clientId).length]);
+    const onSelectOrder = action((order: Order) => {
+        uiStore.selectedOrderId = order.id
+    })
     return (
         <>
-            <ul className={`${styles.orderlist} ${isVisible ? "" : styles.hidden}`}>
-                {/* {store.rootStore.clientStore.clients.find(client => client.id === clientId)!.name} */}
-                {/* <br /> */}
-                {store.orders.filter(order => order.clientId === clientId).map(order =>
-                    <li key={order.id}>
-                        {order.total} {order.orderCurrencyCode}
-                        {currencyFormatter(order.orderCurrencyCode).format(order.total)}
-                    </li>
-                )}
-                <li style={{ color: 'blue' }}>OrderListView</li>
+            <ul ref={refUl} className={`${styles.orderlist} ${isVisible ? "" : styles.hidden}`}>
+                {orderStore.orders
+                    .filter(order => order.clientId === clientId)
+                    .sort((o1, o2) => o2.id - o1.id)
+                    .map(order =>
+                        <li
+                            key={order.id}
+                            onClick={() => onSelectOrder(order)}
+                            style={{ background: order.id === uiStore.selectedOrderId ? "#ccc" : "inherit" }}
+                        >
+                            <span>{currencyFormatter(order.orderCurrencyCode).format(order.total)}</span>
+                            <span>({currencyFormatter(order.paymentCurrencyCode).format(order.paid || 0)})</span>
+                        </li>
+                    )}
+                {/* <li style={{ color: 'blue' }}>OrderListView</li> */}
             </ul>
         </>
     );

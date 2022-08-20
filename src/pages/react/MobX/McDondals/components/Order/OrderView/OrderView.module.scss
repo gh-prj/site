@@ -1,14 +1,26 @@
 .order {
     position: absolute;
-    // display: inline-block;
-    // top: 0px;
-    left: 150px;
-    background: rgb(219, 219, 245);
-    border: 1px solid black;
+    width: 360px;
+    height: 120px;
+    margin-top: 5px;
+    padding-left: 3px;
+    background: rgb(213, 247, 199);
+    border: 1px solid #aaa;
     &.hidden {
         display: none;
     }
     ul {
         list-style: none;
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        span {
+            font-weight: bold;
+            &:nth-of-type(1) {width: 140px; }
+        }
     }
 }

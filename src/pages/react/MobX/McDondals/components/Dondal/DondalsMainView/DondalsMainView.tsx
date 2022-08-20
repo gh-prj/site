@@ -6,6 +6,7 @@ import DondalView from '../DondalView/DondalView';
 import restore from './restore.png'
 import styles from './DondalsMainView.module.scss'
 import { runInAction } from 'mobx';
+import { currencyFormatter, RegionalSettings } from '../../../common';
 
 interface Props {
     id: number
@@ -14,6 +15,7 @@ interface Props {
 const DondalsMainView = observer(() => {
     const [dondalId, setDondalId] = useState(1);
     const store = useRootStore().dondalsStore
+    const uiStore = store.rootStore.uiStore
     useEffect(() => {
         console.log('useEffect. dondalId=' + dondalId)
         runInAction(() => {
@@ -28,16 +30,23 @@ const DondalsMainView = observer(() => {
         setDondalId(1)
         store.reset()
     }
+    const getBalanceStr = () => {
+        return currencyFormatter(RegionalSettings[uiStore.selectedDondal!.countryCode].currencyCode)
+            .format(uiStore.selectedDondal!.balance)
+    }
     return (
         <div className={styles.dondalsMain}>
-            <select value={dondalId} onChange={(e) => setDondalId(parseInt(e.target.value))}>
-                {store.dondals.filter(dondal => !dondal.terminated).map(dondal =>
-                    <option key={dondal.id} value={dondal.id}>({dondal.countryCode}) {dondal.name}</option>
-                )}
-            </select>
-            <img className={styles.restore} src={restore}></img>
-            <span className={styles.restore} onClick={onRestore}></span>
-            <AddNewDondalView setDondalId={setDondalId} style={{ top: 25, left: 130 }} />
+            <div className={styles.selector} style={{ height: 25 }}>
+                <select value={dondalId} onChange={(e) => setDondalId(parseInt(e.target.value))}>
+                    {store.dondals.filter(dondal => !dondal.terminated).map(dondal =>
+                        <option key={dondal.id} value={dondal.id}>({dondal.countryCode}) {dondal.name}</option>
+                    )}
+                </select>
+                <img className={styles.restore} src={restore}></img>
+                <span className={styles.restore} onClick={onRestore}></span>
+                <label className={styles.balance}>Balance: {getBalanceStr()}</label>
+            </div>
+            <AddNewDondalView setDondalId={setDondalId} style={{ top: 28, left: 130 }} />
             <DondalView id={dondalId} refresh={() => setDondalId(1)} />
             {/* <button onClick={addDondal}>Add</button>
             <button onClick={() => store.reset()}>Reset</button> */}

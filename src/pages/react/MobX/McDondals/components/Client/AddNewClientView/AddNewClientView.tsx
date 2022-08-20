@@ -38,11 +38,13 @@ const AddNewClientView: FC<Props> = observer(({ hidden, onClientAdd }) => {
                 type="cancel"
                 onClick={onCancel}
                 disabled={() => false}
+                style={{ marginLeft: 5 }}
             />
             <IconButton
                 type="save"
                 onClick={onSave}
                 disabled={() => (name.trim().length === 0) || (countryCode === null)}
+                style={{ marginLeft: 5 }}
             />
             {/* </div>Cancel</IconButton > */}
         </div >

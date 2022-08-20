@@ -82,14 +82,18 @@ export class Dondal {
     countryCode: CountryCode
     name: string
     terminated: boolean
+    balance = 0
     constructor(id: number,
         countryCode: CountryCode,
         name: string,
-        terminated = false) {
+        terminated = false,
+        balance = 0
+    ) {
         this.id = id
         this.name = name
         this.countryCode = countryCode
         this.terminated = terminated
+        this.balance = balance
         makeObservable(this, {
             terminated: observable
         })
@@ -102,13 +106,15 @@ const initialDondals: Dondal[] = [
         id: 1,
         countryCode: "JP",
         name: "神風",
-        terminated: false
+        terminated: false,
+        balance: 0
     },
     {
         id: 2,
         countryCode: 'RU',
         name: 'Red Corner',
-        terminated: false
+        terminated: false,
+        balance: 0
     },
     // {
     //     id: 3,
@@ -145,7 +151,8 @@ export class DondalsStore {
                 id: Math.max(...this.dondals.map(dondal => dondal.id)) + 1,
                 countryCode: ['EU', 'GB', 'RU'][Math.floor(Math.random() * 3)] as CountryCode,
                 name: 'Dondal' + Date.now(),
-                terminated: false
+                terminated: false,
+                balance: 0
             })
         }
         this.addMenuItem = (dondalId: number, name: string, price: number) => {

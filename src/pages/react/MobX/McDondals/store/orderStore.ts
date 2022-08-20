@@ -166,7 +166,9 @@ export class OrderStore {
     rootStore: RootStore
     orders: Order[] = []
     orderItems: OrderItem[] = []
-    addOrder: (clientId: number, orderCurrencyCode: CurrencyCode, paymentCurrencyCode: CurrencyCode) => Order
+    addOrder: (clientId: number, orderCurrencyCode: CurrencyCode,
+        paymentCurrencyCode: CurrencyCode, isPaid?: boolean,
+        isDelivered?: boolean, paid?: number | undefined) => Order
     addOrderItem: (orderId: number, item: string, price: number, quantity: number) => OrderItem
     reset: () => void
     save: () => void
@@ -197,7 +199,7 @@ export class OrderStore {
         }
         const orderFromDto = (dto: OrderDto) => new Order(
             this, dto.id, dto.clientId, dto.orderCurrencyCode,
-            dto.paymentCurrencyCode, dto.isPaid, dto.isDelivered
+            dto.paymentCurrencyCode, dto.isPaid, dto.isDelivered, dto.paid
         )
         const orderItemFromDto = (dto: OrderItemDto) => new OrderItem(
             this, dto.id, dto.orderId, dto.item,

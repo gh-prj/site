@@ -38,7 +38,7 @@ export const currencyFormatter = (currencyCode: CurrencyCode) => {
     const settings = Object.entries(RegionalSettings)
         .map(entry => entry[1])
         .find(settings => settings.currencyCode === currencyCode)!
-    console.log('currency: ', currencyCode, 'settings: ', settings)
+    // console.log('currency: ', currencyCode, 'settings: ', settings)
     return new Intl.NumberFormat(settings.locale, {
         style: 'currency', currency: settings.currencyCode
     })

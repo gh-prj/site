@@ -95,7 +95,7 @@ export class ClientStore {
                 Math.max(...this.clients.map(client => client.id)) + 1,
                 name,
                 countryCode,
-                ['RU', 'US', 'EU', 'UK'].includes(countryCode) ? 1000 : 30000,
+                ['RU', 'US', 'EU', 'GB'].includes(countryCode) ? 1000 : 30000,
                 RegionalSettings[countryCode].currencyCode
             )
             this.clients.push(client)
