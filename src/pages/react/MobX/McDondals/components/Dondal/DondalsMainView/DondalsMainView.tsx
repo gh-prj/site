@@ -48,8 +48,6 @@ const DondalsMainView = observer(() => {
             </div>
             <AddNewDondalView setDondalId={setDondalId} style={{ top: 28, left: 130 }} />
             <DondalView id={dondalId} refresh={() => setDondalId(1)} />
-            {/* <button onClick={addDondal}>Add</button>
-            <button onClick={() => store.reset()}>Reset</button> */}
         </div>
     );
 })

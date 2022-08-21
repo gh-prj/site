@@ -1,6 +1,5 @@
 .newOrder {
     position: absolute;
-    // top: 30px;
     left: 150px;
     height: 216px;
     border: 1px solid #ccc;
@@ -9,7 +8,6 @@
         display: none;
     }
     div {
-        // background: red;
         border: 1px solid #ccc;
         padding: 2px;
         margin-bottom: 2px;
@@ -32,7 +30,6 @@
         align-items: center;
         font-weight: bold;
         span:nth-of-type(1) {
-            // color: rgb(94, 100, 33);
             background: #fff;
             border: 1px solid #888;
             border-radius: 2px;
@@ -44,18 +41,15 @@
     .total {
         position: absolute;
         bottom: 35px;
-        // background: red;
     }
     footer {
         position: absolute;
         bottom: 0px;
         right: 0px;
-        // background: blue;
         display: flex;
         justify-content: right;
         align-items:flex-end;
         height: 35px;
-        // line-height: 100%;
         button {
             width:70px;
             height: 24px;

@@ -3,12 +3,10 @@ import { observer } from 'mobx-react';
 import React, { FC, useState } from 'react';
 import { useRootStore } from '../../../RootStoreContext';
 import { MenuItem } from '../../../store/dondalsStore';
-import IconButton from '../../UI/IconButton/IconButton';
 import { currencyFormatter, RegionalSettings } from '../../../common'
 import styles from './CreateNewOrderView.module.scss'
 
 interface Props extends React.ComponentProps<"div"> {
-    // dondalId: number
     onNewOrderCreated: (orderId: number | null) => void
 }
 
@@ -40,9 +38,7 @@ const CreateNewOrderView: FC<Props> = observer(({ className, onNewOrderCreated, 
         return total
     }
     const calcClientsTotal = () => {
-        // const client = rootStore.clientStore.clients.find(client => client.id === rootStore.uiStore.selectedClientId)!
         const client = uiStore.selectedClient!
-        // const dondal = rootStore.dondalsStore.dondals.find(dondal => dondal.id === dondalId)!
         const dondal = uiStore.selectedDondal!
         const rates = rootStore.exchangeStore.ratesObj
         const total = calcTotal()
@@ -54,8 +50,6 @@ const CreateNewOrderView: FC<Props> = observer(({ className, onNewOrderCreated, 
     }
     const format = currencyFormatter(
         RegionalSettings[
-            // rootStore.dondalsStore.dondals
-            //     .find(dondal => dondal.id === dondalId)?.countryCode || 'RU'
             uiStore.selectedDondal!.countryCode
         ].currencyCode
     ).format
@@ -111,14 +105,7 @@ const CreateNewOrderView: FC<Props> = observer(({ className, onNewOrderCreated, 
                     >{calcClientsTotal()}</span>
                     <span>{format(calcTotal())}</span>
                 </div>
-                // <div></div>
             }
-            {/* <IconButton
-                type="exit"
-                disabled={() => false}
-                onClick={onCancel}
-            >Cancel</IconButton> */}
-            {/* <div></div> */}
             <footer>
                 <button onClick={onPay}
                     disabled={

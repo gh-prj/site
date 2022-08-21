@@ -1,7 +1,7 @@
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import React, { FC, useEffect, useRef } from 'react';
-import { CountryCode, CurrencyCode, RegionalSettings, currencyFormatter } from '../../../common';
+import { currencyFormatter } from '../../../common';
 import { useRootStore } from '../../../RootStoreContext';
 import { Order } from '../../../store/orderStore';
 import styles from './OrderListView.module.scss'

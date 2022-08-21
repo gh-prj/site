@@ -18,12 +18,9 @@
         display: inline-flex;
         flex-direction: column;
         flex-wrap: wrap;
-        // border: 1px solid #ccc;
         left: 90px;
         width: 78px;
         height: 80px;
-        // background: #000;
-        // color: #fff;
         div {
             &.hidden {display: none;}
             position: relative;

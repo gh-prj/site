@@ -1,12 +1,7 @@
 .newClient  {
-    // position: absolute;
-    display: flex;
     display: inline-flex;
     align-items: center;
-    // top: 6px;
-    // top: 26px;
     height: 22px;
-    // background: red;
     &.hidden {
         display: none;
     }
