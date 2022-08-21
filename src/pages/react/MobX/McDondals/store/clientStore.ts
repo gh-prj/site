@@ -75,8 +75,9 @@ export class ClientStore {
             dto.balance, dto.currencyCode
         )
         this.reset = () => {
-            console.log('reset')
+            console.log('reset Clients')
             this.clients = initialClients.map(clientFromDto)
+            this.rootStore.orderStore.reset()
             this.rootStore.uiStore.selectedClientId = 1
         }
         this.addClient = (name: string, countryCode: CountryCode, currencyCode: CurrencyCode) => {

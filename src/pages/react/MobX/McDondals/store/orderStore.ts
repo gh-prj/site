@@ -182,9 +182,9 @@ export class OrderStore {
             dto.price, dto.quantity
         )
         this.reset = () => {
-            console.log('reset orders')
+            console.log('reset Orders')
             this.orders = initialOrders.map(orderFromDto)
-            console.log('reset orderItems')
+            console.log('reset OrderItems')
             this.orderItems = initialOrderItems.map(orderItemFromDto)
         }
         this.addOrder = (clientId: number, orderCurrencyCode: CurrencyCode,
