@@ -1,0 +1,115 @@
+.menuItem {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    display: inline-flex;
+    align-items: center;
+    list-style:none;
+    border: 1px solid #ccc;
+    margin:1px;
+    padding: 1px 5px;
+    height: 24px;
+    
+    input.name {
+        width: 230px;
+    }
+    span.name {
+        background: rgb(194, 235, 248);
+        display: inline-block;
+        width: 230px;
+    }
+    span.price {
+        background: rgb(194, 235, 248);
+        display: inline-block;
+        font-size: 0.8rem;
+        width: 60px;
+        margin-left: 5px;
+    }
+    input.price {
+        width: 60px;
+        margin-left: 5px;
+    }
+    span.remove::before {
+        content: '\f2ed';
+        font-family: fontAwesome;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    span.edit::before {
+        content: '\f044';
+        font-family: fontAwesome;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    span.cancel::before {
+        content: '\f0e2';
+        font-family: fontAwesome;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    span.save::before {
+        content: '\f0c7';
+        font-family: fontAwesome;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    span.remove,
+    span.save,
+    span.edit,
+    span.cancel {
+        position: relative;
+    }
+    span:hover::after {
+        position: absolute;
+        background: rgb(247, 186, 95);
+        top: -20px;
+        left: 10px;
+        padding: 0px 5px;
+        border-radius: 2px;
+        animation: show 0.5s linear forwards;
+    }
+    @keyframes show {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    span.remove:hover::after {
+        content: 'Remove';
+    }
+    span.save:hover::after {
+        content: 'Save';
+    }
+    span.cancel:hover::after {
+        content: 'Cancel';
+    }
+    span.edit:hover::after {
+        content: 'Edit';
+    }
+    &.view {
+        input.name {
+            display: none;
+        }
+        input.price {
+            display: none;
+        }
+        span.cancel::before {
+            display: none;
+        }
+        span.save {
+            color: #ccc;
+            pointer-events: none;
+        }
+    }
+    &.edit {
+        span.name {
+            display: none;
+        }
+        span.price {
+            display: none;
+        }
+        span.edit::before {
+            display: none;
+        }
+    }
+}

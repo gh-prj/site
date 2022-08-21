@@ -1,0 +1,28 @@
+span.iconButton {
+    position: relative;
+    display: inline-block;
+    &.disabled {
+        color: #ccc;
+        pointer-events: none;
+    }
+    &::before {
+        content: attr(data-icon);
+        font-family: fontAwesome;
+        cursor: pointer;
+    }
+    &:hover::after {
+        content: var(--tooltip);
+        position: absolute;
+        white-space: nowrap;
+        background: rgb(247, 186, 95);
+        top: -20px;
+        left: 10px;
+        padding: 0px 5px;
+        border-radius: 2px;
+        animation: show 0.5s linear forwards;
+    }
+    @keyframes show {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+}

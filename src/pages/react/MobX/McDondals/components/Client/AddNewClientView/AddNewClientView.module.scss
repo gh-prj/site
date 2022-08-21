@@ -1,0 +1,11 @@
+.newClient  {
+    display: inline-flex;
+    align-items: center;
+    height: 22px;
+    &.hidden {
+        display: none;
+    }
+    input {
+        margin-right: 1px;
+    }
+}

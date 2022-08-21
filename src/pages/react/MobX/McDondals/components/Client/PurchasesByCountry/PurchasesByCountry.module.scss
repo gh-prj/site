@@ -1,0 +1,46 @@
+.purchases {
+    position: relative;
+    width: 170px;
+    height: 90px;
+    border: 1px solid transparent;
+    &.hidden {
+        display: none;
+    }
+    .circle {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+    }
+    .countries {
+        position: absolute;
+        display: inline-flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        left: 90px;
+        width: 78px;
+        height: 80px;
+        div {
+            &.hidden {display: none;}
+            position: relative;
+            font-size: 0.85rem;
+            margin: 0 0 0 13px;
+            &::before {
+                content: '';
+                position: absolute;
+                width: 0.7rem;
+                height: 0.7rem;
+                left: -12px;
+                top: 2px;
+            }
+            &:nth-child(1)::before { background: red;}
+            &:nth-child(2)::before { background:rgb(187, 255, 0);}
+            &:nth-child(3)::before { background: green;}
+            &:nth-child(4)::before { background: yellow;}
+            &:nth-child(5)::before { background: brown;}
+            &:nth-child(6)::before { background: rgb(255, 0, 221);}
+            &:nth-child(7)::before { background: rgb(0, 255, 255);}
+        }
+    }
+}

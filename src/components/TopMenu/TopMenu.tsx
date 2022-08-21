@@ -7,6 +7,9 @@ const TopMenu = () => {
     return (
         <ul className={styles.top_menu}>
             <li className={styles.link}><Link to="/site">Home</Link></li>
+            <li className={styles.link}><Link to="/site/mobx/dondals">McDondal&apos;s</Link></li>
+            {/* <li className={styles.link}><Link to="/site/testcontext">Context Test</Link></li> */}
+
             {/* <li>Test
                 <ul>
                     <li>
@@ -41,7 +44,7 @@ const TopMenu = () => {
                     <li className={styles.hasch}>MobX
                         <ul className={styles.vmenu}>
                             <li><Link to="/site/mobx/observable">Core</Link></li>
-                            {/* <li><Link to="/site/mobx/store">Store</Link></li> */}
+                            <li><Link to="/site/mobx/dondals">McDondal&apos;s</Link></li>
                         </ul>
                     </li>
                     <li><Link to="/site/ts/props">TypeScript</Link></li>

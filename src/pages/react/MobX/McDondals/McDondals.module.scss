@@ -1,0 +1,26 @@
+.container {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    img {
+        width: 91px;
+        height: 35px;
+    }
+    button {
+        margin: 0 10px 5px 0;
+        padding: 3px 10px;
+    }
+    div.logo {
+        display: inline-block;
+        margin-bottom: 5px;
+        background: #0a0;
+    }
+    hr {
+        margin: 5px 0;
+    }
+}
+div:has(img) {
+    margin: 20px;
+}
