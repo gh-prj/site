@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { CountryCode, RegionalSettings } from '../../../common';
 import { useRootStore } from '../../../RootStoreContext';
 import styles from './AddNewDondalView.module.scss'
@@ -11,6 +11,10 @@ const AddNewDondalView: FC<Props> = ({ setDondalId, ...props }) => {
     const store = useRootStore().dondalsStore
     const [countryCode, setCountryCode] = useState<string | null>(null);
     const [name, setName] = useState('');
+    const refName = useRef<HTMLInputElement>(null)
+    useEffect(() => {
+        setTimeout(() => refName.current?.focus(), 0)
+    }, [countryCode]);
     const addDondal = () => {
         const dondal = store.addDondal(countryCode as CountryCode, name.trim())
         setDondalId(dondal.id)
@@ -27,7 +31,7 @@ const AddNewDondalView: FC<Props> = ({ setDondalId, ...props }) => {
                 )}
             </select><br />
             <label>Name:</label>
-            <input type="text" value={name} onChange={e => setName(e.target.value)} />
+            <input type="text" ref={refName} value={name} onChange={e => setName(e.target.value)} />
             <span className={`${styles.add} ${countryCode && name ? "" : styles.disabled}`} onClick={addDondal}></span>
         </div >
     );

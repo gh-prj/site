@@ -38,7 +38,7 @@ const OrderListView: FC<Props> = observer(({ clientId }) => {
                         <li
                             key={order.id}
                             onClick={() => onSelectOrder(order)}
-                            style={{ background: order.id === uiStore.selectedOrderId ? "#ccc" : "inherit" }}
+                            style={{ background: order.id === uiStore.selectedOrderId ? "#f3de6a" : "inherit" }}
                         >
                             <span>{currencyFormatter(order.orderCurrencyCode).format(order.total)}</span>
                             <span>({currencyFormatter(order.paymentCurrencyCode).format(order.paid || 0)})</span>

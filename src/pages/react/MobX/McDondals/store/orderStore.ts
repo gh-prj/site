@@ -3,14 +3,6 @@ import { CurrencyCode } from "../common"
 import { RootStore } from "./rootStore"
 import IStorage from "./storage"
 
-// interface IOrderItem {
-//     id: number
-//     orderId: number
-//     item: string
-//     price: number
-//     quantity: number
-// }
-
 class OrderItemDto {
     id: number
     orderId: number
@@ -34,12 +26,6 @@ class OrderItemDto {
 
 export class OrderItem extends OrderItemDto {
     store: OrderStore
-    // id: number
-    // orderId: number
-    // item: string
-    // price: number
-    // quantity: number
-    // order: Order | null
     constructor(
         store: OrderStore,
         id: number,
@@ -50,12 +36,6 @@ export class OrderItem extends OrderItemDto {
     ) {
         super(id, orderId, item, price, quantity)
         this.store = store
-        // this.id = id
-        // this.orderId = orderId
-        // this.item = item
-        // this.price = price
-        // this.quantity = quantity
-        // this.order = this.store?.orders.find(order => order.id === this.orderId) || null
         makeObservable(this, {
             store: false,
             id: false,
@@ -63,7 +43,6 @@ export class OrderItem extends OrderItemDto {
             item: observable,
             price: observable,
             quantity: observable,
-            // order: false
         })
     }
     get order() {
@@ -112,7 +91,6 @@ export class Order extends OrderDto {
     ) {
         super(id, clientId, orderCurrencyCode, paymentCurrencyCode, isPaid, isDelivered, paid)
         this.store = store
-        // this.id = id // generate new id
         makeObservable(this, {
             store: false,
             id: false,
@@ -128,9 +106,6 @@ export class Order extends OrderDto {
     }
     get items() {
         return this.store.orderItems.filter(item => item.orderId === this.id)
-        // const itemArray = this.store.orderItems.filter(item => item.orderId === this.id)
-        // console.log(itemArray)
-        // return itemArray
     }
     get total() {
         return this.items.reduce((total, item) => total + item.price * item.quantity, 0)
@@ -153,13 +128,14 @@ export class Order extends OrderDto {
 }
 
 const initialOrders: OrderDto[] = [
-    new OrderDto(1, 1, 'USD', 'USD', false, false),
-    new OrderDto(2, 2, 'EUR', 'USD', false, false),
+    new OrderDto(1, 1, 'RUB', 'USD', true, true, 6.05),
+    new OrderDto(2, 2, 'JPY', 'EUR', true, true, 1.88),
 ]
 
 const initialOrderItems: OrderItemDto[] = [
-    new OrderItemDto(1, 1, "Burger", 3, 2),
-    new OrderItemDto(2, 2, "Cola", 2, 5)
+    new OrderItemDto(1, 1, "Pelmeni", 0.37, 1),
+    new OrderItemDto(2, 1, "Vodka", 3.62, 1),
+    new OrderItemDto(3, 2, "Susi", 249, 1)
 ]
 
 export class OrderStore {
@@ -243,8 +219,16 @@ export class OrderStore {
         }
         this.orders = JSON.parse(storage.load('mcd/orders') ?? '[]').map(orderFromDto)
         console.log(`loaded ${this.orders.length} order(s)`)
+        if (!this.orders.length) {
+            console.log('used initialOrders')
+            this.orders = initialOrders.map(orderFromDto)
+        }
         this.orderItems = JSON.parse(storage.load('mcd/orderItems') ?? '[]').map(orderItemFromDto)
         console.log(`loaded ${this.orderItems.length} orderItems(s)`)
+        if (!this.orderItems.length) {
+            console.log('used initialOrderItems')
+            this.orderItems = initialOrderItems.map(orderItemFromDto)
+        }
         makeObservable(this, {
             rootStore: false,
             orders: observable,

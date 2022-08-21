@@ -124,7 +124,8 @@ const CreateNewOrderView: FC<Props> = observer(({ className, onNewOrderCreated, 
                     disabled={
                         (uiStore.selectedClient!.balance
                             < uiStore.newOrderClientsTotal)
-                        || uiStore.newOrderClientsTotal === 0
+                        ||
+                        uiStore.newOrderClientsTotal === 0
                     }
                 >Pay</button>
                 <button onClick={onCancel}>Cancel</button>

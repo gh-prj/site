@@ -20,8 +20,6 @@ export class Rate {
     dispose: () => void
     constructor(currencyCode: CurrencyCode, range: Range) {
         this.currencyCode = currencyCode
-        // @ts-ignore
-        // this.countryCode = Object.keys(RegionalSettings).find(key => (RegionalSettings[key] as Settings).currency === currencyCode)
         this.countryCode = Object.entries(RegionalSettings).find(entry => entry[1].currencyCode === currencyCode)![0] as CountryCode
         this.currencyName = RegionalSettings[this.countryCode].currencyName
         let isDisposing = false
@@ -100,9 +98,6 @@ export class ExchangeStore {
             rates: observable,
             ratesObj: computed,
         })
-        // autorun(() => {
-        //     console.log(this.ratesObj)
-        // })
     }
     get ratesObj() {
         const obj: Rates = {}

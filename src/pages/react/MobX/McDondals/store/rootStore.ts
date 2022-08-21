@@ -32,10 +32,6 @@ export class RootStore {
                 { currencyCode: 'INR', range: { from: 73, to: 80 } },
             ]
         )
-        // makeObservable(this, {
-        //     orderStore: observable,
-        //     clientStore: observable
-        // })
         this.save = () => {
             console.log('saving RootStore...')
             this.clientStore.save()

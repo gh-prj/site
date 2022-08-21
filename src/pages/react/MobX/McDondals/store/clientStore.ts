@@ -1,5 +1,4 @@
 import { action, autorun, comparer, makeObservable, observable, reaction, toJS } from "mobx"
-import { json } from "stream/consumers"
 import { RootStore } from "./rootStore"
 import { v4 as uuidv4 } from 'uuid'
 import IStorage from "./storage"
@@ -27,11 +26,6 @@ class ClientDto {
 }
 
 export class Client extends ClientDto {
-    // id: number
-    // name: string
-    // countryCode: CountryCode
-    // balance: number
-    // currencyCode: CurrencyCode
     constructor(
         id: number,
         name: string,
@@ -40,11 +34,6 @@ export class Client extends ClientDto {
         currencyCode: CurrencyCode
     ) {
         super(id, name, countryCode, balance, currencyCode)
-        // this.id = id
-        // this.name = client.name
-        // this.countryCode = client.countryCode
-        // this.balance = client.balance
-        // this.currencyCode = client.currencyCode
         makeObservable(this, {
             balance: observable
         })
@@ -56,14 +45,14 @@ const initialClients: ClientDto[] = [
         id: 1,
         name: 'John Smith',
         countryCode: 'US',
-        balance: 1000,
+        balance: 993.95,
         currencyCode: 'USD'
     },
     {
         id: 2,
         name: 'Luce Pierre',
         countryCode: 'EU',
-        balance: 1000,
+        balance: 998.12,
         currencyCode: 'EUR'
     }
 ]
@@ -88,6 +77,7 @@ export class ClientStore {
         this.reset = () => {
             console.log('reset')
             this.clients = initialClients.map(clientFromDto)
+            this.rootStore.uiStore.selectedClientId = 1
         }
         this.addClient = (name: string, countryCode: CountryCode, currencyCode: CurrencyCode) => {
             console.log('adding client...')
@@ -103,13 +93,14 @@ export class ClientStore {
         }
         this.clients = JSON.parse(storage.load('mcd/clients') ?? '[]')
         console.log(`loaded ${this.clients.length} client(s)`)
+        if (!this.clients.length) {
+            console.log('used initialClients')
+            this.clients = initialClients
+        }
         makeObservable(this, {
             rootStore: false,
             clients: observable,
             reset: action.bound,
-            // load: action.bound,
-            // load: false,
-            // save: false,
             addClient: action.bound
         })
     }

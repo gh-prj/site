@@ -34,23 +34,21 @@ export const RegionalSettings: { [key in CountryCode]: Settings } = {
     'IN': { currencyCode: 'INR', currencyName: 'India Rupee', currencyMin: 0.01, locale: 'hi-IN', country: 'India' },
 }
 
+export const CurrencyCountry: { [key in CurrencyCode]: CountryCode } = {
+    'RUB': 'RU',
+    'USD': 'US',
+    'EUR': 'EU',
+    'GBP': 'GB',
+    'JPY': 'JP',
+    'THB': 'TH',
+    'INR': 'IN',
+}
+
 export const currencyFormatter = (currencyCode: CurrencyCode) => {
     const settings = Object.entries(RegionalSettings)
         .map(entry => entry[1])
         .find(settings => settings.currencyCode === currencyCode)!
-    // console.log('currency: ', currencyCode, 'settings: ', settings)
     return new Intl.NumberFormat(settings.locale, {
         style: 'currency', currency: settings.currencyCode
     })
 }
-
-// // type Keys = typeof RegionalSettings
-// // type Keys2 = keyof Keys
-// // type Keys3 = Partial<Keys>
-// type Keys3 = Partial<{ [key in CurrencyCode]: number }>
-// // const x: { [key in Keys3]: number } = { RU: 0.66 }
-// // const y: Keys3 = {
-// //     RU: { currency: 'RUB', name: 'Russian Ruble', locale: 'ru-RU', country: 'Russia' }
-// // }
-// const t: Keys3 = { 'GBP': 0.8 }
-// t['EUR'] = 1.01

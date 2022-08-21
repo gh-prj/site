@@ -2,6 +2,7 @@
     position: absolute;
     // top: 30px;
     left: 150px;
+    height: 216px;
     border: 1px solid #ccc;
     padding: 1px;
     &.hidden {
@@ -40,8 +41,16 @@
             background: inherit;
         }
     }
-    footer {
+    .total {
+        position: absolute;
+        bottom: 35px;
         // background: red;
+    }
+    footer {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        // background: blue;
         display: flex;
         justify-content: right;
         align-items:flex-end;

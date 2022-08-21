@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { currencyFormatter } from '../../../common';
 import { useRootStore } from '../../../RootStoreContext';
 import { Client } from '../../../store/clientStore';
+import { UiStore } from '../../../store/uiStore';
 import CreateNewOrderView from '../../Order/CreateNewOrderView/CreateNewOrderView';
 import OrderListView from '../../Order/OrderListView/OrderListView';
 import OrderView from '../../Order/OrderView/OrderView';
@@ -14,17 +15,22 @@ import styles from './ClientsMainView.module.scss'
 
 const ClientsMainView = observer(() => {
     const store = useRootStore().clientStore
-    const [clientId, setClientId] = useState(store.clients[0].id);
+    const uiStore = store.rootStore.uiStore
+    // const [clientId, setClientId] = useState(store.clients[0].id);
+    // uiStore.selectedClientId
     const [isVisible, setIsVisible] = useState(false);
-    useEffect(() => {
-        runInAction(() => {
-            store.rootStore.uiStore.selectedClientId = clientId
-        })
-    }, [clientId]);
+    // useEffect(() => {
+    //     runInAction(() => {
+    //         store.rootStore.uiStore.selectedClientId = clientId
+    //     })
+    // }, [clientId]);
     const onNewClientAdded = (id: number | null) => {
         setIsVisible(false)
         if (id) {
-            setClientId(id)
+            // setClientId(id)
+            runInAction(() => {
+                uiStore.selectedClientId = id
+            })
         }
     }
     const onCreateOrder = () => {
@@ -33,7 +39,10 @@ const ClientsMainView = observer(() => {
         })
     }
     const getBalance = () => {
-        const client = store.clients.find(client => client.id === clientId)!
+        // const client = store.clients.find(client => client.id === clientId)!
+        // const client = store.clients.find(client => client.id === uiStore.selectedClientId)!
+        const client = uiStore.selectedClient!
+        console.log(uiStore.selectedClientId, client)
         return currencyFormatter(client.currencyCode).format(client.balance)
     }
     return (
@@ -49,7 +58,8 @@ const ClientsMainView = observer(() => {
                         style={{ top: 1, marginRight: 5 }}
                     // style={{ top: 0 }}
                     >Add new client</IconButton>
-                    <select value={clientId} onChange={(e) => setClientId(parseInt(e.target.value))}>
+                    {/* <select value={clientId} onChange={(e) => setClientId(parseInt(e.target.value))}> */}
+                    <select value={uiStore.selectedClientId} onChange={(e) => uiStore.selectedClientId = parseInt(e.target.value)}>
                         {store.clients.map(client =>
                             <option key={client.id} value={client.id}>({client.countryCode}) {client.name}</option>
                         )}
@@ -73,7 +83,7 @@ const ClientsMainView = observer(() => {
                 <CreateNewOrderView onNewOrderCreated={(id) => { console.log('orderId: ' + id) }} className={styles.cnov} />
             }
             <div className={styles.orders}>
-                <OrderListView clientId={clientId} />
+                <OrderListView clientId={uiStore.selectedClientId} />
                 <OrderView order={store.rootStore.uiStore.selectedOrder} />
                 <div className={styles.purchases}>
                     <PurchasesByCountry />

@@ -68,14 +68,14 @@ const initialMenuItems: MenuItem[] = [
         name: "Kvass",
         price: 0.06
     },
+    {
+        id: 8,
+        dondalId: 2,
+        name: "Bread",
+        price: 0.02
+    },
 ]
 
-// export interface Dondal {
-//     id: number
-//     countryCode: CountryCode
-//     name: string
-//     terminated?: boolean
-// }
 
 export class Dondal {
     id: number
@@ -95,7 +95,8 @@ export class Dondal {
         this.terminated = terminated
         this.balance = balance
         makeObservable(this, {
-            terminated: observable
+            terminated: observable,
+            balance: observable
         })
         console.log(toJS(this))
     }
@@ -116,11 +117,6 @@ const initialDondals: Dondal[] = [
         terminated: false,
         balance: 0
     },
-    // {
-    //     id: 3,
-    //     countryCode: 'US',
-    //     name: "Dondal #1"
-    // }
 ]
 
 export class DondalsStore {
@@ -183,9 +179,6 @@ export class DondalsStore {
             dondals: observable,
             menuItems: observable,
             reset: action.bound,
-            // load: action.bound,
-            // load: false,
-            // save: false,
             addRandomDondal: action.bound,
             addMenuItem: action.bound,
             updateMenuItem: action.bound,

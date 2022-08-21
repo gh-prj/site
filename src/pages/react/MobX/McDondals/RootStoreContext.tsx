@@ -11,17 +11,13 @@ interface Props {
 }
 
 export const RootStoreProvider: FC<Props> = ({ children }) => {
-    // const [store] = useState(() => new RootStore());
     const [store] = useState(() => {
         console.log('<useState in RootStoreProvider>')
         const state = new RootStore()
-        // const err = new Error()
-        // console.log(err.stack)
         console.log('</useState in RootStoreProvider>')
         return state
     });
     useEffect(() => {
-        // store.exchangeStore.hello()
         return () => {
             store.save()
             store.dispose()

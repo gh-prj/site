@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { CountryCode, RegionalSettings } from '../../../common';
 import { useRootStore } from '../../../RootStoreContext';
 import IconButton from '../../UI/IconButton/IconButton';
@@ -16,6 +16,7 @@ const AddNewClientView: FC<Props> = observer(({ hidden, onClientAdd }) => {
     const [name, setName] = useState('');
     const [flag, setFlag] = useState(false);
     const [countryCode, setCountryCode] = useState<CountryCode | null>(null);
+    const refName = useRef<HTMLInputElement>(null)
     const onCancel = () => {
         setFlag(flag => !flag)
         setName('')
@@ -29,10 +30,12 @@ const AddNewClientView: FC<Props> = observer(({ hidden, onClientAdd }) => {
         setCountryCode(null)
         onClientAdd(id)
     }
+    useEffect(() => {
+        setTimeout(() => refName.current?.focus(), 0)
+    });
     return (
         <div className={`${styles.newClient} ${hidden ? styles.hidden : ""}`}>
-            {/* {countryCode}<br /> */}
-            <input type="text" placeholder="Full Name" value={name} onChange={e => setName(e.target.value)} />
+            <input type="text" ref={refName} placeholder="Full Name" value={name} onChange={e => setName(e.target.value)} />
             <SelectCountry setCountryCode={setCountryCode} flag={flag} />
             <IconButton
                 type="cancel"
@@ -46,7 +49,6 @@ const AddNewClientView: FC<Props> = observer(({ hidden, onClientAdd }) => {
                 disabled={() => (name.trim().length === 0) || (countryCode === null)}
                 style={{ marginLeft: 5 }}
             />
-            {/* </div>Cancel</IconButton > */}
         </div >
     );
 })
