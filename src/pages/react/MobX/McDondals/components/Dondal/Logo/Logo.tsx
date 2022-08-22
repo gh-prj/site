@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Flags from "country-flag-icons/react/3x2";
+import Flags from 'country-flag-icons/react/3x2'
 import logo from './logo.png'
 import styles from './Logo.module.scss'
 import { CountryCode } from '../../../common';

@@ -3,7 +3,7 @@ import arrUp from './arrowup.png'
 import arrDown from './arrowdown.png'
 import { Rate } from '../../../store/exchangeStore';
 import { observer } from 'mobx-react';
-import Flags from "country-flag-icons/react/3x2";
+import Flags from 'country-flag-icons/react/3x2'
 import styles from './RateView.module.scss';
 
 interface Props {
