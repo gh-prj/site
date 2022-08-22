@@ -23,7 +23,6 @@
       transform-style: preserve-3d;
       transform: translateY(50px) rotateZ(-60deg) rotateX(-30deg)
         rotateY(-30deg);
-      //   animation: animate 12s linear infinite;
       @keyframes animate {
         from {
           transform: translateY(50px) rotateZ(-60deg) rotateX(-30deg)

@@ -44,13 +44,12 @@ const TopMenu = () => {
                     <li className={styles.hasch}>MobX
                         <ul className={styles.vmenu}>
                             <li><Link to="/site/mobx/observable">Core</Link></li>
-                            <li><Link to="/site/mobx/dondals">McDondal&apos;s</Link></li>
+                            {/* <li><Link to="/site/mobx/dondals">McDondal&apos;s</Link></li> */}
                         </ul>
                     </li>
                     <li><Link to="/site/ts/props">TypeScript</Link></li>
                 </ul>
             </li>
-            <li className={styles.link}><Link to="/site/html">HTML</Link></li>
             <li>CSS
                 <ul>
                     <li className={styles.hasch}>Animations
@@ -83,6 +82,7 @@ const TopMenu = () => {
                     <li>Flexbox</li> */}
                 </ul>
             </li>
+            <li className={styles.link}><Link to="/site/html">HTML</Link></li>
         </ul>
     );
 }

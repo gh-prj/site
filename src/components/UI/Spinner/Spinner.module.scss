@@ -15,8 +15,6 @@
   font-size: var(--font-size);
   .spinner {
     position: relative;
-    // width: calc(var(--diameter) * 1px);
-    // height: calc(var(--diameter) * 1px);
     width: var(--diameter);
     height: var(--diameter);
     animation: rotate 4s linear infinite;
@@ -26,7 +24,6 @@
       position: absolute;
       height: 100%;
       top: 0px;
-      //   left: calc(var(--diameter) / 2 * 1px);
       left: var(--left);
       color: var(--color);
       transform: translateX(-50%) rotate(calc(40deg * var(--idx) - 90deg));

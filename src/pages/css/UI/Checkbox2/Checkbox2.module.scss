@@ -9,7 +9,6 @@
   align-items: center;
   height: 100%;
   background: #cfd1e1;
-  //   overflow: hidden;
   label {
     position: relative;
     display: flex;
@@ -17,7 +16,6 @@
     align-items: center;
     width: 120px;
     height: 60px;
-    // background: #d00;
     cursor: pointer;
     &::before {
       content: "";
@@ -36,7 +34,6 @@
       left: 0;
       width: 60px;
       height: 100%;
-      //   background: #0d0;
       transition: 0.5s;
       &::before {
         position: absolute;
@@ -65,7 +62,6 @@
       left: 60px;
     }
     .iconBox {
-      //   z-index: -1;
       position: relative;
       width: 100%;
       height: 100%;
@@ -84,7 +80,6 @@
       width: 84.85px;
       height: 300px;
       background: #d00;
-      //   z-index: 2;
       background: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.1),
@@ -98,9 +93,7 @@
     .iconBox span {
       // ion-icon
       color: #555;
-      //   color: red;
       font-size: 2.2em;
-      //   background: greenyellow;
       //   --ionicon-stroke-width: 50px;
       transition: 0.5s;
     }

@@ -233,7 +233,6 @@ const Tricks = () => {
             <div>
                 <label>background-clip</label>
                 <div className={styles.background}>
-                    {/* <h3>Lorem ipsum</h3> */}
                     <h3>TIGER</h3><br />
                     <h1>Firework</h1>
                 </div>

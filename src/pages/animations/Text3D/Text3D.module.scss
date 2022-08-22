@@ -9,11 +9,6 @@
   .scene {
     position: relative;
     transform-style: preserve-3d;
-    // background: red;
-    // width: 0;
-    // height: 0;
-    // display: flex;
-    // place-items: center;
     .banner {
       display: flex;
       padding: 20px;
@@ -52,7 +47,6 @@
     }
     .screen {
       position: absolute;
-      //   background-color: #0007;
       background-image: linear-gradient(
         90deg,
         #0004,
