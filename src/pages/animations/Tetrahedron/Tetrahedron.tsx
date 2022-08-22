@@ -2,7 +2,6 @@ import React, { CSSProperties } from 'react';
 import styles from './Tetrahedron.module.scss'
 
 const Tetrahedron = () => {
-    console.log(Math.sqrt(3))
     return (
         <div className={styles.outerContainer}>
             <div className={styles.container}>

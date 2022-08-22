@@ -39,7 +39,6 @@ const Reactions = observer(() => {
             this.value = Math.max(this.value - 1, 0)
         },
         get isRunning() {
-            // console.log(`isClicked: ${this.isClicked}; value: ${this.value}; isRunning: ${!this.isClicked && this.value > 0}`)
             return (!this.isClicked && this.value > 0)
         }
     }))
